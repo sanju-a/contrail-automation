@@ -2,6 +2,7 @@
 
 #-----------------------------------------------------
 #Script for provisioning contrail Service Policy
+#Base version from contrail modified 
 #Author Sanju Abraham - sanjua@juniper.net
 #-----------------------------------------------------
 
