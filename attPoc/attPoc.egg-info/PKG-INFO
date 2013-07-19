@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: attPoc
+Version: 0.1.0
+Summary: Useful NFV demo
+Home-page: http://pypi.python.org/pypi/attPoc/
+Author: Sanju Abraham
+Author-email: sanjua@juniper.net
+License: LICENSE
+Description: ATT portlet for provisioning MIS onRamp 
+        =========================================
+        
+        This portlet will be used to provision service instances that run the NFV functions. 
+        
+        The UI can be modified for any customer demo. 
+        
+        If you have any questions please contact : Sanju Abraham - sanjua@juniper.net
+Platform: UNKNOWN

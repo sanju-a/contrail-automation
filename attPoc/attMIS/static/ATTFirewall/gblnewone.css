@@ -1,0 +1,438 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#globalNav {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 90;
+}
+#globalNav li a:link, #globalNav li a:visited{
+   color:#fff !important;
+}
+#globalNav li a:hover{text-decoration:underline;}
+#globalNav li a {
+    position: static;
+}
+ 
+#globalNav a:focus {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+}
+#globalNav * {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-style: none;
+    border-bottom-width: 0;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: -moz-use-text-color;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: none;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 0;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: -moz-use-text-color;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: none;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 0;
+    border-top-color: -moz-use-text-color;
+    border-top-style: none;
+    border-top-width: 0;
+    color: inherit;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 100%;
+    font-weight: normal;
+    line-height: 15px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left;
+    vertical-align: baseline;
+    z-index: 1;
+}
+#globeOnly {
+    left: 22px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    position: relative;
+    top: 11px;
+    width: 970px;
+}
+.es_US #segMenuBar #segMenuItemBusiness {
+    width: 105px;
+}
+.es_US #segMenuBar #segMenuItemAboutATT {
+    width: 117px;
+}
+.es_US #segMenuBar #segMenuItemFindAStore {
+    width: 105px;
+}
+.es_US #segMenuBar #segMenuItemInternational {
+    width: 85px;
+}
+.es_US #segMenuBar #segMenuItemShopATT {
+    width: 103px;
+}
+.es_US #segMenuBar #segMenuItemmyATT {
+    width: 76px;
+}
+.es_US #segMenuBar #segMenuItemATTSupport {
+    width: 100px;
+}
+.es_US #segMenuBar #segcenterSpan {
+    margin-bottom: -34px;
+    margin-left: 301px;
+    margin-right: 345px;
+    margin-top: 0;
+}
+.es_US .ecom #segMenuBar #segcenterSpan {
+    margin-bottom: -34px;
+    margin-left: 301px;
+    margin-right: 190px;
+    margin-top: 0;
+}
+.ecom #segMenuBar #segcenterSpan {
+    margin-bottom: -34px;
+    margin-left: -1px;
+    margin-right: 0;
+    margin-top: 0;
+}
+.es_US .ecom #segMenuBar .globe #segcenterSpan {
+    margin-bottom: -34px;
+    margin-left: 279px;
+    margin-right: 301px;
+    margin-top: 0;
+}
+.ecom #segMenuBar .globe #segcenterSpan {
+    margin-bottom: -34px;
+    margin-left: 280px;
+    margin-right: 274px;
+    margin-top: 0;
+}
+#segMenuBar {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/images/global/menubg.gif");
+    background-origin: padding-box;
+     background-repeat: no-repeat;
+    background-size: auto auto;
+    height: 34px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+#segMenuBar #stub {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/Common/enterprise/homepage/images/sprite.png");
+    background-origin: padding-box;
+    background-position: right -204px;
+    background-repeat: repeat;
+    background-size: auto auto;
+    height: 34px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 974px;
+}
+#segMenuBar .segMenu li.rightMost a:link span {
+    height: 10px;
+    margin-left: 12px;
+    position: relative;
+    right: -2px;
+}
+ #segMenuBar .segMenu li {
+    float: left;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+#segMenuBar .segMenu li a.segMenuItem.hasSubMenu span {
+    background-color: #EDEDED;
+    background-position: right -68px;
+    padding-right: 24px;
+    color:#515151 !important;	
+}
+#segMenuBar .segMenu li a.segMenuItem.hasSubMenu {
+    background-color: #EDEDED;
+    background-position: left -68px;
+}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron span {
+    background-position: right -34px;
+}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron {
+    background-position: left -34px;
+    color: #515151;
+}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron1 span {
+    background-position: right -34px;
+}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron1 {
+    background-position: left -34px;
+    color: #515151;
+}
+#segMenuBar .segMenu li a.segMenuItem.over span {
+    background-position: right 0;
+    color: #515151;
+}
+#segMenuBar .segMenu li a.segMenuItem.over {
+    background-position: left 0;
+}
+#segMenuBar .segMenu a.segMenuItem span {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/Common/enterprise/homepage/images/sprite.png");
+    background-origin: padding-box;
+    background-position: right -170px;
+    background-repeat: repeat;
+    background-size: auto auto;
+    display: block;
+    margin-left: 14px;
+     padding-bottom: 11px;
+    padding-left: 0;
+    padding-right: 14px;
+    padding-top: 13px;
+}
+#segMenuBar .segMenu a.segMenuItem {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/Common/enterprise/homepage/images/sprite.png");
+    background-origin: padding-box;
+    background-position: left -170px;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: white;
+    cursor: default;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 34px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+#segMenuBar .segMenu li a.segMenuItem.hasURL:hover span {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: underline;
+    -moz-text-decoration-style: solid;
+    cursor: pointer;text-decoration:underline;
+}
+#segMenuBar #segMenuItemShopATT {
+    width: 95px;
+}
+#segMenuBar #segMenuItemmyATT {
+    width: 77px;
+}
+#segMenuBar #segMenuItemATTSupport {
+    width: 108px;
+}
+#segMenuBar #segMenuItemPersonal {
+    width: 79px;
+}
+#segMenuBar #segMenuItemBusiness {
+    width: 100px;
+}
+#segMenuBar #segMenuItemAboutATT {
+    width: 95px;
+
+}
+#segMenuBar #segMenuItemLinkedAccounts {
+    width: 155px;
+}
+#segMenuBar #segMenuItemFindAStore {
+    width: 96px;
+}
+#segMenuBar #segMenuItemInternational {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 105px;
+}
+#segMenuBar div.segSubMenu {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/images/global/rounded_bottom.gif");
+    background-origin: padding-box;
+    background-position: right bottom;
+    background-repeat: repeat;
+    background-size: auto auto;
+    clear: left;
+    display: none;
+    float: left;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: -100px;
+    margin-top: 0;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    position: absolute;
+}
+#segMenuBar div.segSubMenu ul {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/images/global/rounded_bottom.gif");
+    background-origin: padding-box;
+    background-position: left bottom;
+    background-repeat: repeat;
+    background-size: auto auto;
+    clear: left;
+    float: left;
+    left: -6px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 13px;
+    position: relative;
+}
+#segMenuBar div.segSubMenuDivider {
+    border-bottom-color: #CCCCCC;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -14px;
+}
+#segMenuBar div.segSubMenu ul li {
+    float: none;
+    line-height: 22px;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 14px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+#segMenuBar div.segSubMenu ul li a {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    color: #005B95 !important;
+    font-size: 12px;
+}
+#segMenuBar div.segSubMenu ul li a:hover {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;color: #005B95 !important;
+    -moz-text-decoration-line: underline;
+    -moz-text-decoration-style: solid;
+}
+#segMenuBar #leftSegMenu {
+    float: left;
+}
+#segMenuBar #rightSegMenu {
+    float: right;
+}
+#segMenuBar #segMenuContainer {
+height: 34px !important;
+margin-bottom: auto !important;
+margin-left: auto !important;
+margin-right: auto !important;
+margin-top: auto !important;
+padding-bottom: 0 !important;
+padding-left: 93px !important;
+padding-right: 0 !important;
+padding-top: 0 !important;
+width: 1066px !important;
+}
+
+#segMenuBar #segcenterSpan {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("http://www.att.com/images/global/menubg.gif");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    height: 34px;
+    margin-bottom: -34px;
+    margin-left: 274px;
+    margin-right: 201px;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+

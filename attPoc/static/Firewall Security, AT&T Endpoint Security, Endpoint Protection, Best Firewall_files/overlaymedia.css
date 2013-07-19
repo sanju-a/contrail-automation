@@ -1,0 +1,42 @@
+
+/********************************************
+ * Overlay Loading Media File using JWPlayer
+ ********************************************/
+
+.overlay {
+	padding:0px;	
+	display:none;
+	font-family:Verdana;
+	height:22px;
+	width:600px;
+	background-color:#dadada;
+}		
+.overlay #containerTitle {
+	font-family:Verdana;
+	width:585px; 
+	font-size:8pt; 
+	margin-top:4px; 
+	margin-bottom:4px; 
+	margin-left:10px; 
+	vertical-align:middle;
+}
+.overlay .overlayTitle {
+	float:left; 
+	color:#444444;
+}
+.overlay .overlayClose {
+	color: #444444; 
+	float:right;
+	vertical-align: middle; 
+	font-size: 10pt; 
+	font-family: Verdana; 
+	text-decoration: none !important; 
+	margin-top:-2px; 
+	padding-bottom:4px
+}
+.overlay .overlayButton {
+	font-family: verdana, arial; 
+	border: 2px solid #000; 
+	font-size:10px; 
+	font-weight: 900;
+}
