@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^attPoc/', include('attPoc.foo.urls')),
     url(r'^home$', TemplateView.as_view(template_name='attMIS/home.html'), name="home"),
     url(r'^rates/misonramp/', 'attMIS.views.miAaas'),
+    url(r'^cancel/', 'attMIS.views.miAaasCancel'),
     url(r'^rates/', TemplateView.as_view(template_name='attMIS/rates.html'), name="rates"),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

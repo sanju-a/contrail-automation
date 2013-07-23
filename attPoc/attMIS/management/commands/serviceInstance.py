@@ -12,6 +12,7 @@ import errno
 import subprocess
 import time
 import argparse
+import servicePolicy
 
 sys.path.insert(0, os.path.realpath('/usr/lib/python2.7/site-packages'))
 
@@ -70,9 +71,11 @@ class ServiceInstanceCmd(object):
             'right_vn'        : None,
             'api_server_ip'   : '127.0.0.1',
             'api_server_port' : '8082',
+            'policy_name'     : None,
         }
 
         if args.conf_file:
+            self._conf_file = args.conf_file
             config = ConfigParser.SafeConfigParser()
             config.read([args.conf_file])
             global_defaults.update(dict(config.items("DEFAULTS")))
@@ -102,11 +105,13 @@ class ServiceInstanceCmd(object):
                                    help = "max instances to launch [default: 1]")
         create_parser.add_argument("--auto_scale", action = "store_true", default = False,
                                    help = "enable auto-scale from 1 to max_instances")
+        create_parser.add_argument("policy_name", help = "network policy name")
         create_parser.set_defaults(func = self.create_si)
 
         delete_parser = subparsers.add_parser('del')
         delete_parser.add_argument("instance_name", help = "service instance name")
         delete_parser.add_argument("template_name", help = "service instance name")
+        delete_parser.add_argument("policy_name", help = "network policy name")
         delete_parser.add_argument("--proj_name", help = "name of project [default: demo]")
         delete_parser.set_defaults(func = self.delete_si)
 
@@ -123,8 +128,7 @@ class ServiceInstanceCmd(object):
                 print "Error: Service template %s properties not found" % (self._args.template_name)
                 return
         except NoIdError:
-            print "Error: Service template %s not found" % (self._args.template_name)
-            return
+            return "Error: Service template %s not found" % (self._args.template_name)
 
         #check if passed VNs exist
         if self._args.left_vn:
@@ -146,7 +150,7 @@ class ServiceInstanceCmd(object):
         try:
             si_obj = self._vnc_lib.service_instance_read(fq_name=self._si_fq_name)
             si_uuid = si_obj.uuid
-            return "Service Instance - %s, already exists" % (self._args.instance_name)
+            print "Service Instance - %s, already exists" % (self._args.instance_name)
         except NoIdError:
             si_obj = ServiceInstance(self._args.instance_name, parent_obj = project)
             si_uuid = self._vnc_lib.service_instance_create(si_obj)
@@ -168,15 +172,26 @@ class ServiceInstanceCmd(object):
         if si_uuid is None:
             return "Error in creating Service Instance - %s" % (self._args.instance_name)
         else:
-            return "Successfuly Created Service Instance - %s" % (self._args.instance_name)
+            print "Creating network policy for this service instance"
+            confFile = "-c %s" % (self._conf_file)
+            policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", self._args.instance_name, "--vn_list", 
+                                                     self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 
+                                                     self._args.policy_name)
+            print "%s" % servicePolicy.main(policyArgs)
+            return "Successfully Created / Updated Service Instance - %s " % (self._args.instance_name)
         return si_uuid
     #end create_si
 
     def delete_si(self):
         try:
+            print "Deleting Network policy attached to this instance"
+            confFile = "-c %s" % (self._conf_file)
+            policyArgs = "%s %s %s %s %s" % (confFile, "del", "--proj_name", self._args.proj_name, self._args.policy_name)
+            print "Policy delete %s" % (policyArgs)
+            print "%s" % servicePolicy.main(policyArgs)
             print "Deleting service instance %s" % (self._args.instance_name)
             self._vnc_lib.service_instance_delete(fq_name = self._si_fq_name)
-            return "Successfuly deleted Service instance %s" % (self._args.instance_name)
+            return "Successfully deleted Service instance %s" % (self._args.instance_name)
         except NoIdError:
             return "Not Found: Service Instance -%s does not exist" % (self._args.instance_name)
     #delete_si
@@ -208,6 +223,7 @@ def initialize(args_str = None):
             'template_name'   : None,
             'api_server_ip'   : '127.0.0.1',
             'api_server_port' : '8082',
+            'policy_name'     : None,
         }  
 
     conf = "-c %s" % (args.conf_file)
@@ -249,14 +265,17 @@ def initialize(args_str = None):
                                             if k is 'template_name':
                                                 temp = v
                                             else:
-                                                print "unknown config params not valid"
+                                                if k is 'policy_name':
+                                                    policy = v
+                                                else:
+                                                    print "unknown config params not valid"
                                                 
     print "Operation %s" % (oper)
     
     if oper == 'add':
-        arguments = "%s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, max, scale, inst, temp)
+        arguments = "%s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, max, scale, inst, temp, policy)
     else:
-        arguments = "%s %s %s %s %s" % (conf, oper, proj, inst, temp)
+        arguments = "%s %s %s %s %s %s" % (conf, oper, proj, inst, temp, policy)
             
     print "Arguments are %s" % (arguments)
     status = main(arguments)

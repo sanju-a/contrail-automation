@@ -15,9 +15,21 @@ import argparse
 
 sys.path.insert(0, os.path.realpath('/usr/lib/python2.7/site-packages'))
 
+from django.core.management.base import BaseCommand, CommandError
 from vnc_api.vnc_api import *
 from vnc_api.common import exceptions as vnc_exceptions
 
+from optparse import make_option
+
+class Command(BaseCommand):
+    option_list = BaseCommand.option_list + (
+        make_option('--delete',
+            action='store_true',
+            dest='delete',
+            default=False,
+            help='Delete poll instead of closing it'),
+        )
+    
 class ServicePolicyCmd(object):
     def __init__(self, args_str = None):
         self._args = None
@@ -91,8 +103,7 @@ class ServicePolicyCmd(object):
 
     def create_policy(self):
         if self._vn_fq_list == [] or self._svc_list == []:
-            print "Error: VN list or Service list is empty"
-            return
+            return "Error: VN list or Service list is empty"
 
         mirror = None
         policy_flag = 'transparent'
@@ -100,8 +111,7 @@ class ServicePolicyCmd(object):
             try:
                 si_obj = self._vnc_lib.service_instance_read(fq_name_str = svc)
             except NoIdError:
-                print "Error: Service instance %s not found" % (svc)
-                return
+                return "Error: Service instance %s not found" % (svc)
 
             st_list = si_obj.get_service_template_refs()
             if st_list != None:
@@ -117,20 +127,17 @@ class ServicePolicyCmd(object):
                     policy_flag = 'in-network'
 
         if mirror != None and len(self._svc_list) != 1:
-            print "Error: Multiple service instances not allowed for analyzer"
-            return
+            return "Error: Multiple service instances not allowed for analyzer"
 
         if policy_flag == 'in-network' and len(self._svc_list) != 1:
-            print "Error: Multiple service instances cannot be chained for in-network mode"
-            return
+            return "Error: Multiple service instances cannot be chained for in-network mode"
        
         print "Create and attach policy %s" % (self._args.policy_name)
         project = self._vnc_lib.project_read(fq_name = self._proj_fq_name)
         try:
             vn_obj_list = [self._vnc_lib.virtual_network_read(vn) for vn in self._vn_fq_list]
         except NoIdError:
-            print "Error: VN(s) %s not found" % (self._args.vn_list)
-            return
+            return "Error: VN(s) %s not found" % (self._args.vn_list)
 
         addr_list = [AddressType(virtual_network = vn.get_fq_name_str()) for vn in vn_obj_list]
 
@@ -156,7 +163,14 @@ class ServicePolicyCmd(object):
         pentry = PolicyEntriesType([prule])
         np = NetworkPolicy(name = self._args.policy_name, network_policy_entries = pentry,
                            parent_obj = project)
-        self._vnc_lib.network_policy_create(np)
+        
+        try:
+            netpo = self._vnc_lib.network_policy_read(self._policy_fq_name)
+        except NoIdError:
+            self._vnc_lib.network_policy_create(np)
+        
+        print "Updating policy with rule"
+        self._vnc_lib.network_policy_update(np)
 
         seq = SequenceType(1, 1)
         vn_policy = VirtualNetworkPolicyType(seq, timer)
@@ -164,6 +178,11 @@ class ServicePolicyCmd(object):
             vn.set_network_policy(np, vn_policy)
             self._vnc_lib.virtual_network_update(vn)
 
+        if np.uuid is None: 
+            return "Error in creating Network Policy - %s" % (self._args.policy_name)
+        else:
+            return "Successfully Created Network Policy - %s" % (self._args.policy_name)
+        
         return np
     #end create_policy
 
@@ -173,7 +192,7 @@ class ServicePolicyCmd(object):
             np = self._vnc_lib.network_policy_read(self._policy_fq_name)
         except NoIdError:
             print "Error: Policy %s not found for delete" % (self._args.policy_name)
-            return
+            return "Error: Policy %s not found for delete" % (self._args.policy_name)
 
         for network in (np.get_virtual_network_back_refs() or []):
             try:
@@ -184,15 +203,17 @@ class ServicePolicyCmd(object):
                         self._vnc_lib.virtual_network_update(vn_obj)
             except NoIdError:
                 print "Error: VN %s not found for delete" % (network['to'])
+                return "Error: VN %s not found for delete" % (network['to'])
 
         self._vnc_lib.network_policy_delete(fq_name = self._policy_fq_name)
+        return "Network Policy %s deleted" % (self._args.policy_name)
     #delete_policy
 
 #end class ServicePolicyCmd
 
 def main(args_str = None):
     sp = ServicePolicyCmd(args_str)
-    sp._args.func()
+    return sp._args.func()
 #end main
 
 if __name__ == "__main__":
