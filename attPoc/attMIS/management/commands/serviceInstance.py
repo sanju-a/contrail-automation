@@ -178,7 +178,7 @@ class ServiceInstanceCmd(object):
                                                      self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 
                                                      self._args.policy_name)
             print "%s" % servicePolicy.main(policyArgs)
-            return "Successfully Created / Updated Service Instance - %s " % (self._args.instance_name)
+            return "Activated Internet Service"
         return si_uuid
     #end create_si
 
@@ -191,9 +191,10 @@ class ServiceInstanceCmd(object):
             print "%s" % servicePolicy.main(policyArgs)
             print "Deleting service instance %s" % (self._args.instance_name)
             self._vnc_lib.service_instance_delete(fq_name = self._si_fq_name)
-            return "Successfully deleted Service instance %s" % (self._args.instance_name)
+            return "Cancelled Internet Service" 
         except NoIdError:
-            return "Not Found: Service Instance -%s does not exist" % (self._args.instance_name)
+            print "Not Found: Service Instance -%s does not exist" % (self._args.instance_name)
+            return "Service does not exist for this account"
     #delete_si
 
 #end class ServiceInstanceCmd
