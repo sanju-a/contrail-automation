@@ -271,14 +271,11 @@ def initialize(args_str = None):
                                                 else:
                                                     print "unknown config params not valid"
                                                 
-    print "Operation %s" % (oper)
-    
     if oper == 'add':
         arguments = "%s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, max, scale, inst, temp, policy)
     else:
         arguments = "%s %s %s %s %s %s" % (conf, oper, proj, inst, temp, policy)
             
-    print "Arguments are %s" % (arguments)
     status = main(arguments)
     return status        
 #end initialize

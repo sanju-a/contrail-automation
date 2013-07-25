@@ -143,7 +143,7 @@ class ServiceTemplateCmd(object):
             self._vnc_lib.service_template_delete(fq_name = self._st_fq_name)
             return "Successfuly deleted Service template %s" % (self._args.template_name)
         except NoIdError:
-            return "Not Found: Service template %s not found" % (self._args.template_name)
+            return "Service template %s not found" % (self._args.template_name)
             #return
     #_delete_st
 
@@ -173,7 +173,6 @@ def initialize(args_str = None):
         }
 
     conf = "-c %s" % (args.conf_file)
-    print "Input config file %s" % (args.conf_file)
     
     if args.conf_file:
             config = ConfigParser.SafeConfigParser()
@@ -208,7 +207,6 @@ def initialize(args_str = None):
                                         print "unknown config params not valid"
                 
     arguments = "%s %s %s %s %s %s " % (conf, oper, svcType, img, scale, template)
-    print "Arguments are %s" % (arguments)
     status = main(arguments)
     return status        
 #end initialize
