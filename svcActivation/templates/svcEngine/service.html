@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Start of the headers for CoffeeCup Web Form Builder -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta http-equiv="pragma" content="no-cache" />
+    <script type="text/javascript" src="{{STATIC_URL}}/service_files/form_init.js" data-name="" id="form_init_script">
+    </script><link href="{{STATIC_URL}}/service_files/jquery-ui-1.css" type="text/css" rel="stylesheet"><link href="{{STATIC_URL}}/service_files/normalize.css" type="text/css" rel="stylesheet"><script src="{{STATIC_URL}}/service_files/jquery-1.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/service_files/default.css" id="theme">
+    <!-- End of the headers for CoffeeCup Web Form Builder -->
+    <title>
+      service
+    </title>
+  <script src="{{STATIC_URL}}/service_files/jquery-ui-1.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/jquery.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/easyXDM.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/jquery_004.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/jquery_003.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/jquery_002.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/validation_data.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/validation.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/conditionals.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/messages_validation.js" type="text/javascript"></script><script src="{{STATIC_URL}}/service_files/messages_datepicker.js" type="text/javascript"></script></head>
+  <script type="text/javascript">
+        function getParam(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.href);
+            if (results == null)
+                return "";
+            else
+                return results[1];
+        }
+        
+        function getMISOnRampHref() {
+        	var conf = getParam('config');
+        	document.serviceactivation.config.value=conf;
+        }
+        
+        function updateAddOperation() {
+        	document.serviceactivation.operation.value="add";
+        }
+        
+        function updateDelOperation() {
+        	document.serviceactivation.operation.value="del";
+        }
+</script>
+  <body onload="getMISOnRampHref()"><!-- Start of the body content for CoffeeCup Web Form Builder -->
+<style>#docContainer .fb_cond_applied{ display:none; }</style><noscript><style>#docContainer .fb_cond_applied{ display:inline-block; }</style></noscript><form name="serviceactivation" id="docContainer" enctype="multipart/form-data" method="GET" action="svcactivate" novalidate="novalidate" class="fb-toplabel fb-100-item-column selected-object" data-form="publish">
+  <div id="fb-form-header1" class="fb-form-header" style="min-height: 172px; background-color: rgb(94, 181, 235); ">
+    <a id="fb-link-logo1" class="fb-link-logo" href="" target="_blank" style="max-width: 273px; "><img alt="Alternative text" title="Alternative text" id="fb-logo1" class="fb-logo" src="{{STATIC_URL}}/service_files/jnpr-con.jpg" style="display: inline; width: 100%; "></a>
+  </div>
+  <div id="section1" class="section">
+    <div id="column1" class="column ui-sortable"><div style="display:none; min-height:200px;" id="fb_confirm_inline">
+      </div><div style="display:none;" id="fb_error_report">
+      </div><div id="item1" class="fb-item fb-100-item-column" style="padding-top: 10px; opacity: 1; ">
+        <div class="fb-header">
+          <h2 style="display: inline; color: rgb(20, 47, 222); ">
+            Virtual Service Instance
+          </h2>
+        </div>
+       <input id="item77_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="operation" type="hidden" value=''>
+       <input id="item88_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="config" type="hidden" value=''>
+       <input id="item99_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="form" type="hidden" value='true'>
+      </div>
+      <div id="item133" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div>
+      <!-- <div id="item7" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item7_label_0" style="display: inline; color: rgb(20, 47, 222); ">Contrail Config Server IP</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item7_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="server" type="text">
+        </div>
+      </div><div id="item9" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item9_label_0" style="color: rgb(20, 47, 222); display: inline; ">Contrail Config Server Port</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item9_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="port" type="text" value="8082">
+        </div>
+      </div><div id="item12" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div> -->
+        <div id="item10" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item10_label_0" style="display: inline; color: rgb(20, 47, 222); ">Tenant</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item10_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="project" type="text" value="admin">
+        </div>
+      </div><div id="item13" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div><div id="item14" class="fb-item fb-25-item-column">
+        <div class="fb-grouplabel">
+          <label id="item14_label_0" style="display: inline; color: rgb(20, 47, 222); ">Management-VN</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item14_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="mgmt" type="text">
+        </div>
+      </div><div id="item16" class="fb-item fb-25-item-column">
+        <div class="fb-grouplabel">
+          <label id="item16_label_0" style="display: inline; color: rgb(20, 47, 222); ">Left-VN</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item16_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="left" type="text">
+        </div>
+      </div><div id="item19" class="fb-item fb-25-item-column">
+        <div class="fb-grouplabel">
+          <label id="item19_label_0" style="display: inline; color: rgb(20, 47, 222); ">Right-VN</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item19_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="right" type="text">
+        </div>
+      </div><div id="item20" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div><div id="item22" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item22_label_0" style="display: inline; color: rgb(20, 47, 222); ">Service Template</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item22_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="svctemp" type="text">
+        </div>
+      </div><div id="item23" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div><div id="item24" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item24_label_0" style="display: inline; color: rgb(20, 47, 222); ">Service Name</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item24_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="svcname" type="text">
+        </div>
+      </div><div id="item25" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item25_label_0" style="display: inline; color: rgb(20, 47, 222); ">Service Max Instance(s)</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item25_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="svcmax" type="text" value="1">
+        </div>
+      </div><div id="item27" class="fb-item fb-33-item-column">
+        <div class="fb-grouplabel">
+          <label id="item27_label_0" style="display: inline; color: rgb(20, 47, 222); ">Service Auto Scale</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item27_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="svcscale" type="text" value="true">
+        </div>
+      </div><div id="item28" class="fb-item">
+        <div class="fb-sectionbreak">
+          <hr style="max-width: 960px; ">
+        </div>
+      </div><div id="item29" class="fb-item fb-33-item-column" style="opacity: 1; ">
+        <div class="fb-grouplabel">
+          <label id="item29_label_0" style="display: inline; color: rgb(20, 47, 222); ">Network Policy</label>
+        </div>
+        <div class="fb-input-box">
+          <input id="item29_text_1" maxlength="254" placeholder="" autocomplete="off" data-hint="" name="netpolicy" type="text">
+        </div>
+      </div></div>
+  </div>
+  <div id="fb-submit-button-div" class="fb-footer fb-item-alignment-left" style="min-height: 1px; background-color: rgb(197, 223, 240); background-image: none; top: 0px; ">
+    <input class="fb-button-special non-standard" id="fb-submit-button" data-regular="" style="color: rgb(226, 228, 235); font-family: Helvetica,Arial; border-width: 0px; background-image: url(&quot;http://sanabby.coffeecup.com/forms/service/theme/default/images/btn_submit.png&quot;);" value="Activate" type="submit" onClick="getMISOnRampHref(); updateAddOperation();">
+     <input class="fb-button-special non-standard" id="fb-submit-button" data-regular="" style="color: rgb(226, 228, 235); font-family: Helvetica,Arial; border-width: 0px; background-image: url(&quot;http://sanabby.coffeecup.com/forms/service/theme/default/images/btn_submit.png&quot;);" value="Deactivate" type="submit" onClick="getMISOnRampHref(); updateDelOperation();">
+  </div>
+  <input name="fb_form_custom_html" type="hidden">
+  <input name="fb_form_embedded" type="hidden">
+  <input value="1" id="fb_js_enable" name="fb_js_enable" type="hidden">
+  <input value="http%3A%2F%2Fsanabby.coffeecup.com%2Fforms%2Fservice%2F" id="fb_url_embedded" name="fb_url_embedded" type="hidden">
+</form>
+<!-- End of the body content for CoffeeCup Web Form Builder -->
+
+
+
+</body></html>

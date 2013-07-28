@@ -1,0 +1,2 @@
+include CHANGES README LICENCE
+recursive-include svcActivation *.py *.html *.js

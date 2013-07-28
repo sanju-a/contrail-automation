@@ -1,0 +1,524 @@
+#modal-tabs {width:100%;margin:0 0 0 10px;padding:0;}
+#modal-browser,div.modal-browser {border:1px solid #fff;width:100%;margin-left:8px;height:400px;padding:10px;}
+#modal-browserTabbed,div.modal-browserTabbed {border:1px solid #ccc;width:906px;margin-left:15px;padding-left:0px;}
+.modal-iptv-categories {width:145px;height:37px;font-size:10px;line-height:15px;font-weight:700;padding-top:9px;padding-right:9px;text-align:right;border:#CCC solid 1px;border-left-width:0;border-top-width:0;}
+.modal-iptv-entries {width:78px;height:37px;*height:37px !important;font-size:11px;line-height:15px;padding-top:9px;text-align:center;border:#CCC solid 1px;border-left-width:0;border-top-width:0;}
+.modal-voip-categories {width:145px;height:75px;font-size:10px;line-height:15px;font-weight:700;padding-top:9px;padding-right:9px;text-align:right;border:#CCC solid 1px;border-left-width:0;border-top-width:0;}
+.modal-voip-entries {width:145px;height:75px;font-size:11px;line-height:15px;padding-top:9px;text-align:center;border:#CCC solid 1px;border-left-width:0;border-top-width:0;}
+.modal-header-title {font-weight:700;font-size:16px;line-height:16px;color:#F27D00;}
+.modal-header-subtitle {font-weight:700;font-size:11px;padding-left:10px;color:#666;}
+#browser-header {margin-left:18px;width:906px;border-bottom:1px solid #ccc;font-weight:normal;font-size:18px;line-height:52px;height:47px;font-family:Arial;color:#333333;}
+.browserSubHeader{padding:5px 5px 5px 10px;background-color:#E3EEF4;vertical-align:middle;width:890px;margin-left:2px;}
+.voipGeryHead{padding-left:10px; color:#999; font-size:11px;}
+#browser-full-header {margin-left:15px;width:900px;border-bottom:1px solid #ccc;font-weight:700;font-size:16px;line-height:43px;height:43px;}
+#modal-breadcrumb {height:35px;width:827px;margin-left:5px;}
+ul.tabs {list-style:none;padding-left:0;}
+ul.tabs li {position:relative;float:left;z-index:40;display:inline;}
+ul.tabs a {width:130px;text-align:center;cursor:pointer;margin-bottom:-1px;}
+ul.tabs a.inactive {background:url(/media/en_US/images/img/img_tabInactive_bg_AA000CO6.gif) !important;color:#0A94D6;border-bottom:1px solid #CCC;}
+ul.tabs a.active {background:url(/media/en_US/images/img/img_tabActive_bg_AA000CO7.gif) !important;color:#F27D00;border-bottom:1px solid #FFF;}
+ul.tabs a:hover {text-decoration:underline;}
+.startingPrice {font-size:large;color:#F27D00;float:left;padding:9px 0 9px 3px;}
+.startingText {float:left;padding:9px 2px 9px 9px;}
+#IPTV_Name {font-size:large;float:left;width:110px;padding:9px 5px 9px 3px;}
+#VOIP_Name,#HSIA_Name {font-size:large;float:left;width:150px;padding:9px 5px 9px 3px;}
+#totalChannels {float:left;padding-top:9px;padding-right:1px;padding-left:5px;}
+#IPTVDropDownMenu,#HSIADropDownMenu,#VOIPDropDownMenu {position:absolute;width:527px;border:#CCC solid 1px;border-top:0;margin-top:-4px;background-color:#FFF;padding:0;}
+#HSIA_Price,#VOIP_Price {font-size:large;float:left;padding:9px 0 9px 205px;}
+.modal.breadcrumb.container {width:97%;height:35px;margin-left:13px;border-collapse:collapse;}
+.modal.breadcrumb.active {cursor:hand;color:#FFF;font-size:11px !important;font-weight:700;background:url(/media/en_US/images/img/img_steps_bg_org_1x35_AA000E1L.gif) repeat-x;}
+.modal.breadcrumb.inactive {cursor:hand;color:#666;font-size:11px !important;background:url(/media/en_US/images/img/img_steps_bg_gry_1x35_AA000E1K.gif) repeat-x;}
+.modal.breadcrumb.inactive b {color:#0A94D6;font-weight:400;}
+.modal.breadcrumb.whole {width:99%;padding-left:5px;}
+.modal.breadcrumb.half {width:48%;padding-left:5px;}
+.modal.breadcrumb.third {width:30%;padding-left:5px;}
+.modal.breadcrumb.quarter {width:21%;padding-left:5px;}
+.modal.breadcrumb.fifth {width:15%;padding-left:5px;}
+.modal.breadcrumb.active-left {width:5px;background:url(/media/en_US/images/img/img_steps_rt-cap_org_6x35_AA000E1P.gif) no-repeat;}
+.modal.breadcrumb.inactive-left {width:5px;background:url(/media/en_US/images/img/img_steps_rt-cap_gry_6x35_AA000E4N.gif) no-repeat;}
+.modal.breadcrumb.active-join {width:14px;background:url(/media/en_US/images/img/img_steps_front-back_org-gry_14x35_AA000E1N.gif) no-repeat;}
+.modal.breadcrumb.inactive-join {width:15px;background:url(/media/en_US/images/img/img_steps_front-back_gry-org_15x35_AA000E4L.gif) no-repeat;}
+.modal.breadcrumb.ininactive-join {width:15px;background:url(/media/en_US/images/img/img_steps_front-back_gry_15x35_AA000E1M.gif) no-repeat;}
+.modal.breadcrumb.active-right {width:9px;background:url(/media/en_US/images/img/img_steps_front_org_9x35_AA000E4M.gif) no-repeat;}
+.modal.breadcrumb.inactive-right {width:9px;background:url(/media/en_US/images/img/img_steps_front_gry_9x35_AA000E1O.gif) no-repeat;}
+.modal.details {height:472px;}
+.modal.details-bar {width:220px;height:26px;border-top:5px solid #5EBB1F;border-left:1px solid #FFF;border-right:1px solid #FFF;}
+.modal.details-title {color:#666;padding-left:9px;padding-top:4px;height:17px;border-left:0 !important;border-right:0 !important;display:none;}
+.modal.details-scroller {width:220px !important;height:425px !important;display:block;overflow-x:hidden !important;overflow-y:auto !important;}
+.modal.details-body {color:#666;padding-left:9px;padding-top:4px;width:90%;height:90%;}
+.modal.details-note {color:#666;width:204px;height:0;vertical-align:bottom;overflow:hidden;display:none;border-top:1px solid #CCC;padding:9px;}
+.modal.details-scroller-iptv {height:308px !important;}
+.modal.details-note-iptv {height:51px;display:block;}
+.modal.details-button {width:222px;height:25px;text-align:center;vertical-align:bottom;padding-top:11px;}
+.modal.selection.entry {width:195px;border-bottom:1px solid #E2E2E2;}
+.modal.selection.entry-title {width:75%;float:left;text-align:left;padding-top:4px;padding-bottom:5px;}
+.modal.selection.entry-price {width:25%;float:right;text-align:right;padding-top:4px;padding-bottom:5px;}
+.modal,body {font-family:Verdana;}
+.modal.hsia-container {width:767px;height:342px;padding:15px;}
+.modal.hsia-scroller {width:765px;height:100%;overflow-x:auto;overflow-y:scroll;}
+.modal.stage.table {float:left;border-left:1px solid #CCC;border-top:1px solid #CCC;}
+.modal.stage.row th {width:150px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;color:#666;font-weight:700;line-height:20px;text-align:right;vertical-align:top;}
+.modal.stage.row td {width:97px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;color:#666;font-weight:400;line-height:20px;text-align:center;}
+.modal.stage.row.header {border-collapse:collapse;margin-top:-2px;position:absolute;z-index:1;left:16px;top:133px;}
+.modal.stage.row.header th {height:58px;min-height:72px;color:#666;border-left:1px;display:inline-block;vertical-align:top;border-top:1px solid #CCC;background:#FFF url(/media/en_US/images/img/Internet_modal_bkd_blu_grad_1x65.gif) 0 100% repeat-x;}
+.modal.stage.row.header td {height:58px;min-height:72px;color:#F27D00;border-left:1px;display:inline-block;vertical-align:top;border-top:1px solid #CCC;font-size:10px;font-weight:700;background:#FFF url(/media/en_US/images/img/Internet_modal_bkd_blu_grad_1x65.gif) 0 100% repeat-x;}
+.modal.stage.row th div {width:132px;height:100%;overflow:hidden;padding:7px;}
+.modal.stage.row td div {width:79px;height:100%;overflow:hidden;padding:7px;}
+.modal.stage.row.offset th,.modal.hsia.row.offset td {height:57px;}
+.modal.stage.row.guide {background:#F6F6F6 !important;}
+.modal.stage.row .disabled,.modal.row .disabled input {color:#999 !important;cursor:default;}
+.modal.stage.row .disabled img {filter:gray;opacity:0.5px;}
+.modal.popup b {color:#F27D00 !important;font-weight:700 !important;line-height:16px;padding-top:8px;padding-bottom:2px;display:block;margin:0;}
+.inline p {display:inline !important;}
+.bundle,.bundle div,.bundle .orange,.bundle b,.bundle span,.bundle a,.bundle select,.bundle p {-webkit-text-size-adjust: 100% !important;font-size:11px !important;font-family:Verdana !important;}
+#completeGreenImage {padding-left:0;padding-top:10px;}
+#backgroundGradient-addToBundle {background:url(/media/en_US/images/img/gradient_add_AA000P34.png) bottom left repeat-x;height:135px;}
+.domino-sel ul {list-style-type:disc;list-style-position:inside;margin-top:0;}
+.domino-sel li {font-size:0.9em;}
+.domino-sel input {padding-top:5px;}
+.dotted {border:none;height:0;border-bottom:1px solid #ccc;margin:5px 0;padding:0;}
+.domino-sel-bottom {padding-bottom:10px;padding-top:0;clear:both;line-height:100%;height:100% font-type:verdana;font-size:11px;font-color:#666;}
+#selectedPackageTable {width:190px;border:0;margin:0;}
+#selectedPackageTable-Selected {width:190px;border:0;padding-bottom:3px;margin:0;}
+#selectedPackageTable-Selected tr td {line-height:15px;margin:0;}
+.radioButton {padding-left:3px;padding-right:2px;}
+.selected {padding-top:3px;margin-top:3px;}
+.item {width:170px;float:left;padding-bottom:0;}
+.description span {padding-right:3px;}
+.underline {width:100%;padding-left:auto;padding-right:auto;border-bottom:1px dotted #ccc;}
+.price {margin-right:0;}
+.price strong {padding-left:3px;}
+.modal-iptv-categories a,.modal-voip-categories a {font-size:10px;line-height:15px;font-weight:700;}
+.modal.details-scroller-hsia,.modal.details-scroller-voip {height:378px !important;}
+.modal.stage.row.guide th,a.orange {color:#F27D00;}
+.rcvrCalcTable{border:1px solid #CCCCCC;border-collapse:collapse}
+.rcvrCalcHdrCommon{height:30px;border-top:0px;border-bottom:1px solid #CCCCCC;color:#333;}
+.rcvrCalcChrgHdr{width:227px;padding-left:10px;font-weight:bold;font-size:14px;text-align:left;}
+.rcvrCalcMrcNrcHdr{width:75px;border-left:1px solid #CCCCCC;font-size:11px;text-align:center;background-color:#F5F5F5;}
+.rcvrCalcDataColCommon{height:24px;border-bottom:1px solid #E7E7E7;font-size:11px;color:#333;}
+.rcvrCalcDataNameCol{width:250px;padding-left:15px;text-align:left;text-transform:uppercase;}
+.rcvrCalcDataMrcNrcCol{width:75px;padding-right:5px;text-align:right;border-left:1px solid #CCCCCC;background-color:#F5F5F5;}
+.rcvrCalcTotColCommon{height:30px;text-align:right;border-top:3px solid #CCCCCC;font-size:12px;color:#FF7200;}
+.rcvrCalcTotRcvrCol{padding-right:10px;width:250px;}
+.rcvrCalcTotMrcNrcCol{padding-right:5px;width:75px;border-left:1px solid #CCCCCC;background-color:#F5F5F5;}
+.rcvrWifiSTBMsg{position: bottom; float: left; height: 80px; background-color:#ffffcc; border:1px solid #fcef02; color:#666666; font-size:11px;padding-top:5px;padding-bottom:5px;padding-left:10px;padding-right:10px}
+
+/**************************
+Wireless receiver changes 
+**************************/
+.addRecv-mainContainer {
+	float: left;
+	margin-right: 8px;
+	width: 106px;
+	height: 210px;
+}
+
+.addRecv-lastContainer {
+	float: left;
+	width: 106px;
+	height: 210px;
+}
+
+.addRecv-imageContainer {
+	float: left;
+	text-align: center;
+	height: 96px;
+}
+
+.addRecv-radio {
+	line-height: 12px;
+	margin-left: 1px;
+	margin-top: 8px;
+	float:left;
+	width:106px;
+	height:13px;
+	position:relative;
+}
+.addDVRRecv-radio {
+	line-height: 12px;
+	position: relative;
+	margin-left: 1px;
+	float:left;
+	width:106px;
+	height:15px;
+}
+.maxDVRRecv-message {
+	float:left;
+	position: relative;
+	line-height: 7px;
+	margin-left: 1px;
+	font-size: 9px;
+	color: #FF7200;
+	height: 15px;
+}
+.maxWrlsRecv-message {
+	float:left;
+	position: relative;
+	line-height: 9px;
+	margin-left: 1px;
+	padding-top:6px;
+	font-size: 9px;
+	color: #FF7200;
+	height: 30px;
+}
+.addRecv-message-hidden {
+	position: relative;
+	width: 106px;
+	line-height: 12px;
+	display: none;
+}
+.addRecv-included-msg-mainContainer {	
+	height:15px;
+    float:left;
+    width:106px;
+	overflow: hidden;
+	line-height: 11px;
+	color: #FF7200;
+	font-size: 9px;
+}
+.addRecv-nrc-msg-mainContainer {	
+	height:15px;	
+    float:left;
+    width:106px;
+	overflow: hidden;
+}
+
+.addRecv-message-visible {
+	float:left;
+	line-height: 8px;
+	font-size: 9px;
+	color: #FF7200;
+	padding-left:19px;
+	margin-top:4px;
+}
+* + html .addRecv-message-visible {	
+	line-height: 10px;
+}
+
+.addRecv-removeButton {
+	float: left; 
+	cursor: pointer; 
+	cursor: hand;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 106px; 
+	text-align:center;
+}
+
+.addRecv-vertLine {
+	width: 8px;
+	height: 228px;
+	float: left;
+}
+
+.addRecv-hdr {
+	float: left;
+	font-family: Verdana;
+	font-weight: bold;
+	vertical-align: middle;
+	font-size: 11px;	
+}
+
+.addRcvr_hdr_stbdvr_msg {
+	float: left;
+	margin-left: 5px;
+	font-family: Verdana;
+	vertical-align: middle;
+	font-size: 11px;
+}
+
+.addRecv-hdr-msg {
+	width: 425px;
+	height: 18px;
+	vertical-align: middle;
+	background-color: #e3eef4;
+	font-size: 11px;
+	position: relative;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.recv-crRisk-msg {
+	width: 500px;
+	background-color: #ffffcc;
+	border: 1px solid #fcef02;
+	color: #666666;
+	font-size: 11px;
+	position: relative;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+input[disabled] {
+ border: 0px;
+}
+.addRecv-label-enabled{
+	padding-left:5px;
+	vertical-align:top;
+	color:#666666;
+	*vertical-align:-3px;/*ECOM1302X-129: For aligning the label text with the radio in IE7 (i.e. IE8 Compatibility mode)*/
+}
+* + html .addRecv-label-enabled{
+	padding-left:0px;
+}
+.addRecv-label-disabled{
+	padding-left:5px;
+	vertical-align:top;
+	color:#D3D3D3;
+	*vertical-align:-3px;/*ECOM1302X-129: For aligning the label text with the radio in IE7 (i.e. IE8 Compatibility mode)*/
+}
+.activateDeactivePrice{
+	padding-left:15px;
+}
+
+.rcvrCalcTable {
+    border:1px solid #CCCCCC;
+    border-collapse:collapse;
+}
+.rcvrCalcHdrCommon {
+    height:30px;
+    border-top:0px;
+    border-bottom:1px solid #CCCCCC;
+    color:#333333;
+}
+.rcvrCalcChrgHdr {
+    width:200px;
+    padding-left:10px;
+    font-weight:bold;
+    font-size:14px;
+    text-align:left;
+}
+.rcvrCalcMrcNrcHdr {
+    width:74px;
+    border-left:1px solid #CCCCCC;
+    font-size:11px;
+    text-align:center;
+    background-color:#F5F5F5;
+}
+.rcvrCalcDataColCommon {
+    height:24px;
+    border-bottom:1px solid #CCCCCC;
+    font-size:11px;
+    color:#F27D00;
+    font-weight:bold;
+}
+.rcvrCalcDataNameCol {
+    width:200px;
+    padding-left:10px;
+    text-align:left;
+}
+.rcvrCalcDataMrcNrcCol {
+    width:65px;
+    padding-right:10px;
+    text-align:right;
+    border-left:1px solid #CCCCCC;
+    background-color:#F5F5F5;
+}
+.rcvrCalcTotColCommon {
+    height:24px;
+    text-align:right;
+    border-top:3px solid #CCCCCC;
+    font-size:11px;
+    color:#F27D00;
+}
+.rcvrCalcTotRcvrCol {
+    padding-right:10px;
+    width:200px;
+}
+.rcvrCalcTotMrcNrcCol {
+    padding-right:5px;
+    width:72px;
+    border-left:1px solid #CCCCCC;
+    background-color:#F5F5F5;
+}
+.additionalWrlsRcvrMsg {
+    position:relative;
+    float:left;
+    background-color:#FFFFDA;
+    border-color:#F5E976;
+    border-style:solid;
+    border-width:1px;
+    font-size:10px;
+    padding-left:10px;
+    padding-right:10px;
+    margin-left:10px;
+    vertical-align:middle;
+    padding-top:5px;
+    padding-bottom:5px;
+    width:520px;
+}
+.existingReceiverCountMsg {
+    position:relative;
+    margin-top:8px;
+    margin-bottom:8px;
+    margin-left:10px;
+    font-size:11px;
+}
+.additionalReceiverDropdown {
+    width:160px;
+    float:left;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:10px;
+    font-size:11px;
+}
+.detailLink {
+    align:left;
+    padding-left:5px;
+	font-size:11px;
+}
+.receiverDescriptionDiv {
+    float:left;
+    margin-top:7px;
+    margin-right:7px;
+    margin-bottom:10px;
+}
+.receiversHeader {
+    float:left;
+    background-color:#E3EEF4;
+    font-size:11px;
+    padding-left:10px;
+    vertical-align:middle;
+    padding-top:5px;
+    padding-bottom:5px;
+    overflow:hidden;
+    height:15px;
+}
+.activateDeactiverLabel{
+	vertical-align:middle;
+	float:right;
+	line-height: 11px;
+}
+.additionalReceiverHeaderMessage {
+    background-color:#E3EEF4;
+    vertical-align:middle;
+    font-size:11px;
+    padding-left:10px;
+    height:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.receiverSection {
+    height:400px;
+    margin-left:20px;
+    width:913px}
+.receiverDVRNRCMsg {
+	float:left;
+	padding-left:5px;
+    padding-right:10px;
+    height:15px;
+    padding-bottom:4px;
+    font-size:11px;
+    vertical-align:middle;
+}
+.step3PageTop {
+    height:112px;
+}
+.receiverHeaderSection {
+    float:left;
+    width:550px;
+    padding-right:10px
+}
+.receiverHowManyHeaderRow {
+    background-color:#E3EEF4;
+    vertical-align:middle;
+}
+.receiverHowManyHeaderCol {
+    font-size:11px;
+    padding-left:10px;
+}
+.iptvDropdown {
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:60px;
+    width:160px;
+}
+.iptvDropdownPadding {
+    padding-left:6px;
+    padding-right:6px;
+}
+.packageDescSection {
+    float:left;
+    margin-top:10px;
+    margin-left:10px;
+    width:365px;
+}
+.receiverMRCDesc {
+    float:left;
+    margin-bottom:5px;
+    margin-bottom:0\9; /* IE 8 and below */
+    margin-right:10px;
+    width:365px;
+}
+.previewLink {
+    float:left;
+    margin-right:10px;
+    width:365px;
+}
+.receiverSelectHeader {
+    float:left;
+    width:907px;
+    height:25px;
+}
+.receiverSelectHeaderRow {
+    background-color:#E3EEF4;
+    vertical-align:middle;
+}
+.receiverSelectHeaderCol {
+    font-size:11px;
+    padding-left:10px;
+}
+.advWrlsRcvrMsg {
+    float:left;   
+    font-size:11px;
+    padding-left:10px;
+    vertical-align:middle;
+    padding-top:10px;
+    padding-bottom:10px;
+    overflow:hidden;
+    height:16px;
+	width:789px;
+}
+.advWrlsMsgLabel {
+    padding-left:10px;
+    float:left;
+	width:150px;
+	font-size:11px;
+	text-align: left;
+	line-height: 16px;
+}
+.rdoOverlay{	
+    filter: alpha(opacity=0); 
+	background-color: #FFFFFF;
+    bottom: 0;
+    height: 14px;
+	line-height: 14px;
+    left: 0;    
+    position: absolute;
+    top: 0;
+    width: 106px;
+	z-index:10000;
+	opacity:0;
+}
+.rcvrLabel{
+	text-align:left;
+	width: 70px;
+	height:12px;
+	float:left;
+	vertical-align:middle;
+	line-height:11px;
+}
+.receiverLabel{
+	width: 106px;
+	height: 24px;
+	text-align: center;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Verdana;
+	background-image:url(/media/att/2012/shop/u-verse/common/icn-label-bg.gif);
+}
+* + html .rcvrLabel{
+	line-height:17px;
+}
