@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="content-language" content="en">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Contrail Demo</title>
+<link href="{{STATIC_URL}}demo_files/css.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/style.css">
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/slider.css">
+<script style="color: rgb(0, 0, 0);" src="{{STATIC_URL}}demo_files/jquery_005.js"></script>
+<script src="{{STATIC_URL}}demo_files/jquery-ui.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_003.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_002.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery-animate-css-rotate-scale.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_004.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/custom.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/mail.js"></script>
+<!--[if ie 9]>
+<link rel="stylesheet" type="text/css" href="CSS/iestyle.css"/>
+<![endif]-->
+</head>
+<script type="text/javascript">
+        function getParam(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.href);
+            if (results == null)
+                return "";
+            else
+                return results[1];
+        }
+        
+        function getAccountForCancelHref() {
+        	var id = getParam('config');
+            var param = "ordercancel?operation=del&config="+id;
+            document.getElementById("orderCancel").href = param;
+        }
+        
+</script>
+<body onload="getAccountForCancelHref()">
+	<div id="header">
+    	<div class="inner">
+        	<div id="logo"><h1><a href="contrail_demo_with_nfv.htm">Contrail Demo</a></h1></div>
+             <ul id="nav">
+        	<li><a href="" id="orderCancel">Your Account</a></li>
+            <li class=""><a href="#">Order Services</a></li>
+            <li><a href="#">Statements</a></li>
+            <li class="" id="contacttrig"><a href="#">Customer Support</a>
+            	  <form style="visibility: hidden; display: block;" id="contact" name="contact" action="#" method="post" class="contact_form">
+					<ul style="visibility: hidden;">
+						<li>
+						<label for="name">Name:</label>
+						<input placeholder="John Doe" required="" id="name" name="name" type="text">
+						</li>
+						<li>
+						<label for="email">Email:</label>
+						<input name="email" placeholder="john_doe@example.com" required="" id="email" type="email">
+						<span class="form_hint">Proper format "name@something.com"</span>
+						</li>
+						<li>
+						<label for="website">Website:</label>
+						<input name="website" placeholder="http://johndoe.com" required="" pattern="(http|https)://.+" id="website" type="url">
+						<span class="form_hint">Proper format "http://someaddress.com"</span>
+						</li>
+						<li>
+						<label for="msg">Message:</label>
+						<textarea name="msg" cols="40" rows="6" required="" id="msg"></textarea>
+						</li>
+						<li>
+						<button class="submit" type="submit" id="send">Submit Form</button><span class="required_notification">* Denotes Required Field</span>
+						</li>
+					</ul>
+				</form>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+ <div class="inner centered">
+        
+        	<div align="Left"><br><h3>Congratulations <strong>Mock Financial!</strong></h3>
+        	<p>your ordered service has been activated.</p></div>
+
+		
+
+
+</div>
+        	
+       
+        </div>
+
+  
+      
+       
+        
+
+
+
+
+
+    <div class="outer bottombar"><div class="inner">
+			<div class="social">
+				
+				<div class="topofpage">
+					<a style="opacity: 0.1;" href="#top"><span>Top Of Page</span></a>
+				</div>
+			</div>
+    </div></div>
+
+</body></html>

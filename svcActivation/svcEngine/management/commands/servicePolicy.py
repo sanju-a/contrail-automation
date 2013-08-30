@@ -133,7 +133,7 @@ class ServicePolicyCmd(object):
 
         addr_list = [AddressType(virtual_network = vn.get_fq_name_str()) for vn in vn_obj_list]
 
-        port = PortType(0, -1)
+        port = PortType(0,65535)
         action_list = None
         action = "pass"
         if self._svc_list:

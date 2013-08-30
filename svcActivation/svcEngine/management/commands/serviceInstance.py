@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.realpath('/usr/lib/python2.7/site-packages'))
 
 from django.core.management.base import BaseCommand, CommandError
 from vnc_api.vnc_api import *
-from vnc_api.common import exceptions as vnc_exceptions
+from cfgm_common.exceptions import *
 
 from optparse import make_option
 
@@ -170,6 +170,7 @@ class ServiceInstanceCmd(object):
             return "Error in creating Service Instance - %s" % (self._args.instance_name)
         else:
             print "Creating network policy for this service instance"
+            time.sleep(5)
             confFile = "-c %s" % (self._conf_file)
             policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", self._args.instance_name, "--vn_list", 
                                                      self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 

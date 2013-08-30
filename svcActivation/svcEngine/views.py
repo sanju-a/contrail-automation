@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 import management.commands.serviceInstance
 
 from django.core.context_processors import csrf
@@ -19,9 +20,8 @@ def miAaas(request):
         op = "--operation %s" % (oper)   
     
     args = ("%s %s") % (conf, op)
-       
     status = management.commands.serviceInstance.initialize(args)
-    return HttpResponse("Status:: %s" % (status))
+    return HttpResponseRedirect('/index/orderdone/')
 
 def miAaasCancel(request):
     config = request.GET.get('config')
@@ -40,7 +40,7 @@ def miAaasCancel(request):
     args = ("%s %s") % (conf, op)
     
     status = management.commands.serviceInstance.initialize(args)
-    return HttpResponse("Status:: %s" % (status))
+    return HttpResponseRedirect('/index/canceldone/')
 
 def svcActivate(request):
     form = "--form %s" % (request.GET.get('form'))
