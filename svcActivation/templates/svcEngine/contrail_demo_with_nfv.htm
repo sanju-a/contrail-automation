@@ -39,6 +39,7 @@
         	var id = getParam('config');
             var param = "orderdone?config="+id;
             document.getElementById("orderOk").href = param;
+            document.getElementById("orderOk1").href = param;
         }
         
         function getCancelMISOnRampHref() {
@@ -51,6 +52,7 @@
         	var id = getParam('config');
             var param = "ratesatt/misonramp?operation=add&config="+id;
             document.getElementById("miaas").href = param;
+            document.getElementById("mfaas").href = param;
         }
         
         function getAccountForCancelHref() {
@@ -59,14 +61,19 @@
             document.getElementById("orderCancel").href = param;
         }
         
+        function getAccountForSvcsHref() {
+        	var id = getParam('config');
+            var param = "ordersvcs?operation=add&config="+id;
+            document.getElementById("ordersvcs").href = param;
+        }
 </script>
-<body test="test" onload="getMISOnRampHrefConfirm();getMISOnRampHref();getCancelMISOnRampHref();getAccountForCancelHref()">
+<body test="test" onload="getMISOnRampHrefConfirm();getMISOnRampHref();getCancelMISOnRampHref();getAccountForCancelHref();getAccountForSvcsHref()">
 	<div id="header">
     	<div class="inner">
         	<div id="logo"><h1><a href="#">Contrail Demo</a></h1></div>
              <ul id="nav">
         	<li><a href="" id="orderCancel" onclick="getAccountForCancelHref()">Your Account</a></li>
-            <li class=""><a href="#">Order Services</a></li>
+            <li class=""><a href="" id="ordersvcs" onclick="getAccountForSvcsHref()">Order Services</a></li>
             <li><a href="#">Statements</a></li>
             <li class="" id="contacttrig"><a href="#">Customer Support</a>
             	  <form style="visibility: hidden; display: block;" id="contact" name="contact" action="#" method="post" class="contact_form">
@@ -121,12 +128,12 @@
 					<h3>Basic</h3>
 				</div>
 				<div class="pprice">
-					<p style="color:white;font-size:25px;">$14.99<small>/mo</small></p>
+					<p style="color:white;font-size:25px;">$0.005<small>/min</small></p>
 				</div>
 				</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Basic Firewall</li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Internet Access</li>
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/basic_firewall.png" ></img></li>
-				<li><a href="" id="orderOk">Order Online Now</a></li>
+				<li><a href="" id="miaas">Order Online Now</a></li>
 			</ul>
 			</li>
 			<li style="z-index: 999; box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.224);" class="green highlight">
@@ -142,7 +149,7 @@
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elite Firewall</li>
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/elite_firewall.png" height="128px"></img></li>
 				
-				<li><a href="" id="miaas">Order Online Now</a></li>
+				<li><a href="" id="mfaas" onclick="getMISOnRampHref()">Order Online Now</a></li>
 			</ul>
 			</li>
 			<li class="orange">
@@ -172,7 +179,7 @@
 				</li>
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IPS</li>
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/ips.png" ></img></li>
-				<li><a href="" id="orderOk" onclick="getMISOnRampHrefConfirm()">Order Online Now</a></li>
+				<li><a href="" id="orderOk1" onclick="getMISOnRampHrefConfirm()">Order Online Now</a></li>
 			</ul>
 			</li>
 		</ul>

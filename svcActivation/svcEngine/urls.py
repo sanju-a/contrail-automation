@@ -21,7 +21,8 @@ urlpatterns = patterns('',
     url(r'^contrailnonfv$', TemplateView.as_view(template_name='svcEngine/contrail_demo_without_nfv.htm'), name="contrailnonfv"),
     url(r'^orderdone$', TemplateView.as_view(template_name='svcEngine/demo_order_confirmation.htm'), name="contrailorderdone"),
     url(r'^ordercancel$', TemplateView.as_view(template_name='svcEngine/demo_service_cancellation.htm'), name="contrailcancelorder"),
-     url(r'^canceldone$', TemplateView.as_view(template_name='svcEngine/demo_cancel_confirmation.htm'), name="contrailcancelok"),
+    url(r'^canceldone$', TemplateView.as_view(template_name='svcEngine/demo_cancel_confirmation.htm'), name="contrailcancelok"),
+    url(r'^ordersvcs$', TemplateView.as_view(template_name='svcEngine/contrail_demo_with_nfv.htm'), name="contrailordersvcs"),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

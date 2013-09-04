@@ -183,7 +183,6 @@ class ServicePolicyCmd(object):
         try:
             np = self._vnc_lib.network_policy_read(self._policy_fq_name)
         except NoIdError:
-            print "Error: Policy %s not found for delete" % (self._args.policy_name)
             return "Error: Policy %s not found for delete" % (self._args.policy_name)
 
         for network in (np.get_virtual_network_back_refs() or []):
@@ -194,7 +193,6 @@ class ServicePolicyCmd(object):
                         vn_obj.del_network_policy(np)
                         self._vnc_lib.virtual_network_update(vn_obj)
             except NoIdError:
-                print "Error: VN %s not found for delete" % (network['to'])
                 return "Error: VN %s not found for delete" % (network['to'])
 
         self._vnc_lib.network_policy_delete(fq_name = self._policy_fq_name)

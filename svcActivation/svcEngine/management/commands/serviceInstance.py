@@ -59,6 +59,7 @@ class ServiceInstanceCmd(object):
             'domain_name'     : 'default-domain',
             'template_name'   : None,
             'instance_name'   : None,
+            'sc_inst_name'    : None,
             'proj_name'       : 'demo',
             'mgmt_vn'         : None,
             'left_vn'         : None,
@@ -66,6 +67,7 @@ class ServiceInstanceCmd(object):
             'api_server_ip'   : '127.0.0.1',
             'api_server_port' : '8082',
             'policy_name'     : None,
+            'sc_policy_name'  : None,
         }
 
         if args.conf_file:
@@ -91,6 +93,7 @@ class ServiceInstanceCmd(object):
         create_parser = subparsers.add_parser('add')
         
         create_parser.add_argument("instance_name", help = "service instance name")
+        create_parser.add_argument("sc_inst_name", help = "service chained service instance name")
         create_parser.add_argument("template_name", help = "service template name")
         create_parser.add_argument("--proj_name", help = "name of project [default: demo]")
         create_parser.add_argument("--mgmt_vn", help = "name of management vn [default: none]")
@@ -101,14 +104,17 @@ class ServiceInstanceCmd(object):
         create_parser.add_argument("--auto_scale", action = "store_true", default = False,
                                    help = "enable auto-scale from 1 to max_instances")
         create_parser.add_argument("policy_name", help = "network policy name")
+        create_parser.add_argument("sc_policy_name", help = "network policy name to delete")
         create_parser.set_defaults(func = self.create_si)
 
         delete_parser = subparsers.add_parser('del')
         create_parser.add_argument("--config_server_ip", help = "config server IP")
         create_parser.add_argument("--config_server_port", help = "config server Port")
         delete_parser.add_argument("instance_name", help = "service instance name")
+        delete_parser.add_argument("sc_inst_name", help = "service chained service instance name")
         delete_parser.add_argument("template_name", help = "service instance name")
         delete_parser.add_argument("policy_name", help = "network policy name")
+        delete_parser.add_argument("sc_policy_name", help = "Deleted network policy name to re-add")
         delete_parser.add_argument("--proj_name", help = "name of project [default: demo]")
         delete_parser.set_defaults(func = self.delete_si)
 
@@ -169,12 +175,25 @@ class ServiceInstanceCmd(object):
         if si_uuid is None:
             return "Error in creating Service Instance - %s" % (self._args.instance_name)
         else:
-            print "Creating network policy for this service instance"
-            time.sleep(5)
             confFile = "-c %s" % (self._conf_file)
+            policy_fq_name = [self._args.domain_name, self._args.proj_name, self._args.sc_policy_name]
+            
+            try:
+                netpo = self._vnc_lib.network_policy_read(policy_fq_name)
+                if netpo.uuid is None:
+                    return "Error in retrieving policy info for %s" % (self._args.sc_policy_name)
+                else:
+                    confFile = "-c %s" % (self._conf_file)
+                    policyArgs = "%s %s %s %s %s" % (confFile, "del", "--proj_name", self._args.proj_name, self._args.sc_policy_name)
+                    print "%s" % servicePolicy.main(policyArgs)
+            except NoIdError:
+                print "Policy %s marked for deletion. Does not exist" % (self._args.sc_policy_name)
+                
             policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", self._args.instance_name, "--vn_list", 
                                                      self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 
                                                      self._args.policy_name)
+            time.sleep(5)
+            print "Creating network policy for this service instance"
             print "%s" % servicePolicy.main(policyArgs)
             return "Activated Service"
         return si_uuid
@@ -185,6 +204,24 @@ class ServiceInstanceCmd(object):
             confFile = "-c %s" % (self._conf_file)
             policyArgs = "%s %s %s %s %s" % (confFile, "del", "--proj_name", self._args.proj_name, self._args.policy_name)
             print "%s" % servicePolicy.main(policyArgs)
+            
+            si_fq_name = [self._args.domain_name, self._args.proj_name, self._args.sc_inst_name]
+            try:
+                si_obj = self._vnc_lib.service_instance_read(fq_name=si_fq_name)
+                si_uuid = si_obj.uuid
+                policy_fq_name = [self._args.domain_name, self._args.proj_name, self._args.sc_policy_name]
+                try:
+                    netpo = self._vnc_lib.network_policy_read(policy_fq_name)
+                    netpo_uuid = netpo.uuid
+                except NoIdError:
+                    policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", self._args.sc_inst_name, "--vn_list", 
+                                                     self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 
+                                                     self._args.sc_policy_name)
+                    time.sleep(5)
+                    print "%s" % servicePolicy.main(policyArgs)
+            except NoIdError:
+                print "Create the service chained service instance -- EXPLICITLY"
+                
             print "Deleting service instance %s" % (self._args.instance_name)
             self._vnc_lib.service_instance_delete(fq_name = self._si_fq_name)
             return "Deactivated Service" 
@@ -231,10 +268,12 @@ def initialize(args_str = None):
             'max_instances'   : '1',
             'auto_scale'      : '--auto_scale',
             'instance_name'   : None,
+            'sc_inst_name'    : None,
             'template_name'   : None,
             'api_server_ip'   : '127.0.0.1',
             'api_server_port' : '8082',
-            'policy_name'     : None,
+            'policy_name' : None,
+            'sc_policy_name' : None,
         }  
 
     if args.conf_file:
@@ -285,15 +324,27 @@ def initialize(args_str = None):
                                     if k is 'instance_name':
                                         inst = v
                                     else:
-                                        if k is 'template_name':
-                                            temp = v
+                                        if k is 'sc_inst_name':
+                                            sc_inst = v
                                         else:
-                                            if k is 'policy_name':
-                                                policy = v
+                                            if k is 'template_name':
+                                                temp = v
+                                            else:
+                                                if k is 'policy_name':
+                                                    policy = v
+                                                else:
+                                                    if k is 'sc_policy_name':
+                                                        policy_sc = v
     if oper == 'add':
-        arguments = "%s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, maxinst, scale, inst, temp, policy)        
+        if form:
+            arguments = "%s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, maxinst, scale, inst, temp, policy)
+        else:
+            arguments = "%s %s %s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, maxinst, scale, inst, sc_inst, temp, policy, policy_sc)         
     else:
-        arguments = "%s %s %s %s %s %s" % (conf, oper, proj, inst, temp, policy)
+        if form:
+            arguments = "%s %s %s %s %s %s" % (conf, oper, proj, inst, temp, policy)
+        else:
+            arguments = "%s %s %s %s %s %s %s %s" % (conf, oper, proj, inst, sc_inst, temp, policy, policy_sc)
     
     print "COMMAND ARGS %s" %(arguments)
     status = main(arguments)

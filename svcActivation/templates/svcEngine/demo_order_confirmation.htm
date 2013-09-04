@@ -40,14 +40,19 @@
             document.getElementById("orderCancel").href = param;
         }
         
+        function getAccountForSvcsHref() {
+        	var id = getParam('config');
+            var param = "ordersvcs?operation=add&config="+id;
+            document.getElementById("ordersvcs").href = param;
+        }
 </script>
-<body onload="getAccountForCancelHref()">
+<body onload="getAccountForCancelHref();getAccountForSvcsHref()">
 	<div id="header">
     	<div class="inner">
         	<div id="logo"><h1><a href="contrail_demo_with_nfv.htm">Contrail Demo</a></h1></div>
              <ul id="nav">
-        	<li><a href="" id="orderCancel">Your Account</a></li>
-            <li class=""><a href="#">Order Services</a></li>
+        	<li><a href="" id="orderCancel" onclick="getAccountForCancelHref()">Your Account</a></li>
+            <li class=""><a href="" id="ordersvcs" onclick="getAccountForSvcsHref()">Order Services</a></li>
             <li><a href="#">Statements</a></li>
             <li class="" id="contacttrig"><a href="#">Customer Support</a>
             	  <form style="visibility: hidden; display: block;" id="contact" name="contact" action="#" method="post" class="contact_form">

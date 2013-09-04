@@ -21,7 +21,8 @@ def miAaas(request):
     
     args = ("%s %s") % (conf, op)
     status = management.commands.serviceInstance.initialize(args)
-    return HttpResponseRedirect('/index/orderdone/')
+    redir = "/index/orderdone?config=%s" % (config) 
+    return HttpResponseRedirect(redir)
 
 def miAaasCancel(request):
     config = request.GET.get('config')
@@ -40,7 +41,8 @@ def miAaasCancel(request):
     args = ("%s %s") % (conf, op)
     
     status = management.commands.serviceInstance.initialize(args)
-    return HttpResponseRedirect('/index/canceldone/')
+    redir = "/index/canceldone?config=%s" % (config)
+    return HttpResponseRedirect(redir)
 
 def svcActivate(request):
     form = "--form %s" % (request.GET.get('form'))
