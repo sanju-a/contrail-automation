@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 import management.commands.serviceInstance
+import management.commands.spaceSecDirApi
 
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
@@ -21,7 +22,7 @@ def miAaas(request):
     
     args = ("%s %s") % (conf, op)
     status = management.commands.serviceInstance.initialize(args)
-    redir = "/index/orderdone?config=%s" % (config) 
+    redir = "/index/orderdone?config=%s" % (config)
     return HttpResponseRedirect(redir)
 
 def miAaasCancel(request):
@@ -114,3 +115,29 @@ def svcActivate(request):
     status = management.commands.serviceInstance.initialize(args)
     
     return HttpResponse ("Status:: %s" % (status))
+
+def provisionDevice(request):
+    config = request.GET.get('config')
+    oper = request.GET.get('operation')
+    polc = request.GET.get('policy')
+    
+    if config is None:
+        return HttpResponse("Config file not provided")
+    else:
+        conf = "-c %s" % (config)
+        
+    if oper is None:
+        return HttpResponse("Operation (add/del) not specified") 
+    else:
+        op = "--operation %s" % (oper)   
+    
+    if polc is None:
+        return HttpResponse("Policy not specified")
+    else:
+        protocol= "--protocol %s" % (polc)
+        
+    args = ("%s %s %s") % (conf, op, protocol)
+    print args
+    status = management.commands.spaceSecDirApi.initialize(args)
+    redir = "/index/orderdone?config=%s" % (config)
+    return HttpResponseRedirect(redir)

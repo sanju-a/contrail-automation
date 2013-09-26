@@ -51,6 +51,12 @@
             var param = "ordersvcs?operation=add&config="+id;
             document.getElementById("ordersvcs").href = param;
         }
+        
+        function getEditForSvcsHref() {
+        	var id = getParam('config');
+            var param = "editsvcs?operation=add&config="+id;
+            document.getElementById("editsvcs").href = param;
+        }
 </script>
 <body onload="getAccountForSvcsHref()">
 	<div id="header">
@@ -103,7 +109,7 @@
             <input type="checkbox" name="service" value="IPS">IPS
 </form> 
 <br>
-<a href="" id="cancelMiaas" onclick="getCancelMISOnRampHref()"><button type="button">Cancel Services Now</button></a> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a href="" id="editsvcs" onclick="getEditForSvcsHref()"><button type="button">Edit Services</button></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" id="cancelMiaas" onclick="getCancelMISOnRampHref()"><button type="button">Cancel Services Now</button></a> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     
 </div>    			
 </div>

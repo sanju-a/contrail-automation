@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Contrail Demo</title>
+<link href="{{STATIC_URL}}demo_files/css.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/style.css">
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/slider.css">
+<script style="color: rgb(0, 0, 0);" src="{{STATIC_URL}}demo_files/jquery_005.js"></script>
+<script src="{{STATIC_URL}}demo_files/jquery-ui.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_003.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_002.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery-animate-css-rotate-scale.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery_004.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/custom.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}demo_files/mail.js"></script>
+<!--[if ie 9]>
+<link rel="stylesheet" type="text/css" href="CSS/iestyle.css"/>
+<![endif]-->
+</head><script type="text/javascript">        function getParam(name) {            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");            var regexS = "[\\?&]" + name + "=([^&#]*)";            var regex = new RegExp(regexS);            var results = regex.exec(window.location.href);            if (results == null)                return "";            else                return results[1];        }                function getAccountForCancelHref() {        	var id = getParam('config');            var param = "ordercancel?operation=del&config="+id;            document.getElementById("orderCancel").href = param;        }                function getAccountForSvcsHref() {        	var id = getParam('config');            var param = "ordersvcs?operation=add&config="+id;            document.getElementById("ordersvcs").href = param;        }                function getProvDeviceHref() {        	var proto = null;        	if (document.getElementById("blkhttp").checked)        		proto = "http";        	else if (document.getElementById("blkhttps").checked)        		proto = "https";        	else if (document.getElementById("blkichat").checked)        		proto = "apple-ichat";        	var id = getParam('config');            var param = "provdev?operation=add&policy="+proto+"&config="+id;            document.getElementById("provdevice").href = param;        }</script>
+<body>
+	<div id="header">
+    	<div class="inner">
+        	<div id="logo"><h1><a href="contrail_demo_with_nfv.htm">Contrail Demo</a></h1></div>
+             <ul id="nav">
+        	<li><a href="" id="orderCancel" onclick="getAccountForCancelHref()">Your Account</a></li>
+            <li class=""><a href="" id="ordersvcs" onclick="getAccountForSvcsHref()">Order Services</a></li>
+            <li><a href="#">Statements</a></li>
+            <li class="" id="contacttrig"><a href="#">Customer Support</a>
+            	  <form style="visibility: hidden; display: block;" id="contact" name="contact" action="#" method="post" class="contact_form">
+					<ul style="visibility: hidden;">
+						<li>
+						<label for="name">Name:</label>
+						<input placeholder="John Doe" required="" id="name" name="name" type="text">
+						</li>
+						<li>
+						<label for="email">Email:</label>
+						<input name="email" placeholder="john_doe@example.com" required="" id="email" type="email">
+						<span class="form_hint">Proper format "name@something.com"</span>
+						</li>
+						<li>
+						<label for="website">Website:</label>
+						<input name="website" placeholder="http://johndoe.com" required="" pattern="(http|https)://.+" id="website" type="url">
+						<span class="form_hint">Proper format "http://someaddress.com"</span>
+						</li>
+						<li>
+						<label for="msg">Message:</label>
+						<textarea name="msg" cols="40" rows="6" required="" id="msg"></textarea>
+						</li>
+						<li>
+						<button class="submit" type="submit" id="send">Submit Form</button><span class="required_notification">* Denotes Required Field</span>
+						</li>
+					</ul>
+				</form>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+ <div class="inner centered">
+        
+        	<div align="Left"><br><h3>Hello <strong>Mock Financial!</strong></h3><br>
+            
+           <p> You can configure the exisitng serives with the below available options.</p>
+        	<form> 
+            <input type="checkbox" name="service" id="blkhttp" value="http">Block HTTP<br>
+			<input type="checkbox" name="service" id="blkhttps" value="https">Block HTTPS<br>
+            <input type="checkbox" name="service" id="blkichat" value="apple-ichat">Block Apple-iChat
+</form> 
+<br>
+<a href="" id="provdevice" onclick="getProvDeviceHref()"><button type="button">Configure Changes</button></a> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>    			
+</div>
+        	
+       
+        </div>
+
+  
+      
+       
+        
+
+
+
+
+
+    <div class="outer bottombar"><div class="inner">
+			<div class="social">
+				
+				<div class="topofpage">
+					<a style="opacity: 0.1;" href="#top"><span>Top Of Page</span></a>
+				</div>
+			</div>
+    </div></div>
+
+</body></html>

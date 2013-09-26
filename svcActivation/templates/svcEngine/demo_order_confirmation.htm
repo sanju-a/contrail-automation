@@ -45,6 +45,12 @@
             var param = "ordersvcs?operation=add&config="+id;
             document.getElementById("ordersvcs").href = param;
         }
+        
+        function getEditForSvcsHref() {
+        	var id = getParam('config');
+            var param = "editsvcs?operation=add&config="+id;
+            document.getElementById("editsvcs").href = param;
+        }
 </script>
 <body onload="getAccountForCancelHref();getAccountForSvcsHref()">
 	<div id="header">
@@ -89,24 +95,17 @@
         
         	<div align="Left"><br><h3>Congratulations <strong>Mock Financial!</strong></h3>
         	<p>your ordered service has been activated.</p></div>
-
-		
-
-
-</div>
         	
+</div>
        
         </div>
-
-  
-      
-       
         
-
-
-
-
-
+   <!-- <div class="inner centered">
+       <div align="Left"><br> <a href="" id="editsvcs" onclick="getEditForSvcsHref()"><button type="button">Edit Services</button></a> <br><br><br><br><br><br><br><br><br><br><br><br>
+       
+       </div>
+    </div> -->
+    <br><br><br><br><br><br><br><br><br><br><br><br>    
     <div class="outer bottombar"><div class="inner">
 			<div class="social">
 				

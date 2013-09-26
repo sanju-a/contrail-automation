@@ -1,0 +1,32 @@
+.brand img {
+	width: 20px;
+}
+
+.dl-horizontal dt {
+	text-align: left;
+}
+
+.green {
+	color: green;
+}
+
+.select_thumbnail {
+	background-color: black;
+}
+
+.select_thumbnail:hover {
+	background-color: lightslategray;
+}
+
+.thumbnail a {
+	text-decoration: none;
+}
+
+.thumbnail h3 {
+	font-size: 14px;
+	text-align: center;
+}
+
+table thead tr td {
+	font-weight: bold;
+}
