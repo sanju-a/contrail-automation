@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 import management.commands.serviceInstance
 import management.commands.spaceSecDirApi
+import management.commands.editServicePolicy
 
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
@@ -138,6 +139,8 @@ def provisionDevice(request):
         
     args = ("%s %s %s") % (conf, op, protocol)
     print args
-    status = management.commands.spaceSecDirApi.initialize(args)
+    #status = management.commands.spaceSecDirApi.initialize(args)
+    status = management.commands.editServicePolicy.initialize(args)
+    print status
     redir = "/index/orderdone?config=%s" % (config)
     return HttpResponseRedirect(redir)

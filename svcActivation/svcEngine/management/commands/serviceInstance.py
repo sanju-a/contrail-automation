@@ -41,6 +41,8 @@ class ServiceInstanceCmd(object):
             self._left_vn_fq_name = [self._args.domain_name, self._args.proj_name, self._args.left_vn]
         if self._args.right_vn:
             self._right_vn_fq_name = [self._args.domain_name, self._args.proj_name, self._args.right_vn]
+        if self._args.mgmt_vn:
+            self._mgmt_vn_fq_name = [self._args.domain_name, self._args.proj_name, self._args.mgmt_vn]
 
         self._vnc_lib = VncApi('u', 'p', 
                          api_server_host = self._args.api_server_ip, 
@@ -136,6 +138,12 @@ class ServiceInstanceCmd(object):
             except NoIdError:
                 print "Error: Right VN %s not found" % (self._right_vn_fq_name)
                 return
+        if self._mgmt_vn_fq_name:
+            try:
+                self._vnc_lib.virtual_network_read(fq_name = self._mgmt_vn_fq_name)
+            except NoIdError:
+                print "Error: Management VN %s not found" % (self._mgmt_vn_fq_name)
+                return 
         
         #get service template
         try:
@@ -156,8 +164,26 @@ class ServiceInstanceCmd(object):
             print "Service Instance - %s, already exists" % (self._args.instance_name)
         except NoIdError:
             si_obj = ServiceInstance(self._args.instance_name, parent_obj = project)
+            lft_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.left_vn)
+            rgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.right_vn)
+            mgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.mgmt_vn)
+            
+            si_prop = ServiceInstanceType(left_virtual_network = lft_vn, 
+                                      management_virtual_network = mgt_vn,
+                                      right_virtual_network = rgt_vn)
+
+            #set scale out
+            scale_out = ServiceScaleOutType(max_instances = self._args.max_instances, 
+                                            auto_scale = self._args.auto_scale)
+            si_prop.set_scale_out(scale_out)
+
+            si_obj.set_service_instance_properties(si_prop)
+            st_obj = self._vnc_lib.service_template_read(id = st_obj.uuid)
+            si_obj.set_service_template(st_obj)
+            
             si_uuid = self._vnc_lib.service_instance_create(si_obj)
 
+        """
         si_prop = ServiceInstanceType(left_virtual_network = self._args.left_vn, 
                                       management_virtual_network = self._args.mgmt_vn,
                                       right_virtual_network = self._args.right_vn)
@@ -171,6 +197,7 @@ class ServiceInstanceCmd(object):
         st_obj = self._vnc_lib.service_template_read(id = st_obj.uuid)
         si_obj.set_service_template(st_obj)
         self._vnc_lib.service_instance_update(si_obj)
+        """
 
         if si_uuid is None:
             return "Error in creating Service Instance - %s" % (self._args.instance_name)
