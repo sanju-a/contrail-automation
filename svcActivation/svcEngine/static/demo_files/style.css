@@ -239,11 +239,15 @@ ul#nav li ul a:hover {
 }
 /* === Logo === */
 #logo {
-	width:500px;
+	width:100px;
 	padding:0;
+	
 }
+
 h1 {
-	background:url(images/logo.png) top left no-repeat;
+	background:#fff url(images/Verizonlogo.png) top left no-repeat;
+	background-size:70px 50px;
+	padding:0;
 	width:302px;
 	height:52px;
 	display:block;

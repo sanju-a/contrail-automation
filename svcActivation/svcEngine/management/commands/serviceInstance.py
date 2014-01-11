@@ -13,7 +13,6 @@ import subprocess
 import time
 import argparse
 import servicePolicy
-import serviceTemplate
 
 sys.path.insert(0, os.path.realpath('/usr/lib/python2.7/site-packages'))
 
@@ -35,7 +34,9 @@ class ServiceInstanceCmd(object):
 
         self._proj_fq_name = [self._args.domain_name, self._args.proj_name]
         self._si_fq_name = [self._args.domain_name, self._args.proj_name, self._args.instance_name]
+        self._chain_si_fq_name = [self._args.domain_name, self._args.proj_name, self._args.chained_service_name]
         self._st_fq_name = [self._args.domain_name, self._args.template_name]
+        self._chain_st_fq_name = [self._args.domain_name, self._args.chained_service_template]
         self._domain_fq_name = [self._args.domain_name]
         if self._args.left_vn:
             self._left_vn_fq_name = [self._args.domain_name, self._args.proj_name, self._args.left_vn]
@@ -63,6 +64,7 @@ class ServiceInstanceCmd(object):
             'instance_name'   : None,
             'sc_inst_name'    : None,
             'proj_name'       : 'demo',
+            'service_mode'    : 'In-network',
             'mgmt_vn'         : None,
             'left_vn'         : None,
             'right_vn'        : None,
@@ -70,6 +72,8 @@ class ServiceInstanceCmd(object):
             'api_server_port' : '8082',
             'policy_name'     : None,
             'sc_policy_name'  : None,
+            'chained_service_name' : None,
+            'chained_service_name' : None,
         }
 
         if args.conf_file:
@@ -94,6 +98,7 @@ class ServiceInstanceCmd(object):
 
         create_parser = subparsers.add_parser('add')
         
+        create_parser.add_argument("--service_mode", help = "service mode")
         create_parser.add_argument("instance_name", help = "service instance name")
         create_parser.add_argument("sc_inst_name", help = "service chained service instance name")
         create_parser.add_argument("template_name", help = "service template name")
@@ -107,6 +112,8 @@ class ServiceInstanceCmd(object):
                                    help = "enable auto-scale from 1 to max_instances")
         create_parser.add_argument("policy_name", help = "network policy name")
         create_parser.add_argument("sc_policy_name", help = "network policy name to delete")
+        create_parser.add_argument("chained_service_name", help = "chained service name")
+        create_parser.add_argument("chained_service_template", help = "chained service template name")
         create_parser.set_defaults(func = self.create_si)
 
         delete_parser = subparsers.add_parser('del')
@@ -114,9 +121,9 @@ class ServiceInstanceCmd(object):
         create_parser.add_argument("--config_server_port", help = "config server Port")
         delete_parser.add_argument("instance_name", help = "service instance name")
         delete_parser.add_argument("sc_inst_name", help = "service chained service instance name")
-        delete_parser.add_argument("template_name", help = "service instance name")
         delete_parser.add_argument("policy_name", help = "network policy name")
         delete_parser.add_argument("sc_policy_name", help = "Deleted network policy name to re-add")
+        delete_parser.add_argument("chained_service_name", help = "chained service name")
         delete_parser.add_argument("--proj_name", help = "name of project [default: demo]")
         delete_parser.set_defaults(func = self.delete_si)
 
@@ -153,7 +160,17 @@ class ServiceInstanceCmd(object):
                 print "Error: Service template %s properties not found" % (self._args.template_name)
                 return
         except NoIdError:
-            return "Error: Service template %s not found" % (self._args.template_name)
+            return "Service template %s not found" % (self._args.template_name)
+        
+        if self._args.chained_service_template != 'None':
+            try:
+                chain_st_obj = self._vnc_lib.service_template_read(fq_name=self._chain_st_fq_name)
+                chain_st_prop = chain_st_obj.get_service_template_properties()
+                if chain_st_prop == None:
+                    print "Error: Service template %s properties not found" % (self._args.template_name)
+                    return
+            except NoIdError:
+                return "Chained Service template %s not found" % (self._args.template_name)
 
         #create si
         print "Creating service instance %s" % (self._args.instance_name)
@@ -164,8 +181,25 @@ class ServiceInstanceCmd(object):
             print "Service Instance - %s, already exists" % (self._args.instance_name)
         except NoIdError:
             si_obj = ServiceInstance(self._args.instance_name, parent_obj = project)
-            lft_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.left_vn)
+            
+        if self._args.chained_service_name != 'None':
+            try:
+                chain_si_obj = self._vnc_lib.service_instance_read(fq_name=self._chain_si_fq_name)
+                si_uuid = chain_si_obj.uuid
+                print "Chained Service Instance - %s, already exists" % (self._args.instance_name)
+            except NoIdError:
+                chain_si_obj = ServiceInstance(self._args.chained_service_name, parent_obj = project)
+            
+        if self._args.service_mode == 'Transparent':
+            lft_vn = ""
+        else:
+            lft_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.left_vn)    
+                
+        if self._args.service_mode == 'Transparent':
+            rgt_vn = ""
+        else:    
             rgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.right_vn)
+                    
             mgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.mgmt_vn)
             
             si_prop = ServiceInstanceType(left_virtual_network = lft_vn, 
@@ -182,6 +216,12 @@ class ServiceInstanceCmd(object):
             si_obj.set_service_template(st_obj)
             
             si_uuid = self._vnc_lib.service_instance_create(si_obj)
+            
+        if self._args.chained_service_name != 'None':
+            chain_si_obj.set_service_instance_properties(si_prop)
+            chain_st_obj = self._vnc_lib.service_template_read(id = chain_st_obj.uuid)
+            chain_si_obj.set_service_template(chain_st_obj)
+            chain_si_uuid = self._vnc_lib.service_instance_create(chain_si_obj)
 
         """
         si_prop = ServiceInstanceType(left_virtual_network = self._args.left_vn, 
@@ -215,8 +255,13 @@ class ServiceInstanceCmd(object):
                     print "%s" % servicePolicy.main(policyArgs)
             except NoIdError:
                 print "Policy %s marked for deletion. Does not exist" % (self._args.sc_policy_name)
+            
+            if self._args.chained_service_name != 'None':
+                svcList = "%s %s" % (self._args.instance_name, self._args.chained_service_name)
+            else:
+                svcList = "%s" % (self._args.instance_name)
                 
-            policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", self._args.instance_name, "--vn_list", 
+            policyArgs = "%s %s %s %s %s %s %s %s %s %s" % (confFile, "add", "--svc_list", svcList, "--vn_list", 
                                                      self._args.left_vn, self._args.right_vn, "--proj_name", self._args.proj_name, 
                                                      self._args.policy_name)
             time.sleep(5)
@@ -251,6 +296,8 @@ class ServiceInstanceCmd(object):
                 
             print "Deleting service instance %s" % (self._args.instance_name)
             self._vnc_lib.service_instance_delete(fq_name = self._si_fq_name)
+            if self._args.chained_service_name != 'None':
+                self._vnc_lib.service_instance_delete(fq_name = self._chain_si_fq_name)
             return "Deactivated Service" 
         except NoIdError:
             print "Not Found: Service Instance -%s does not exist" % (self._args.instance_name)
@@ -270,12 +317,15 @@ def initialize(args_str = None):
     conf_parser.add_argument("-c", "--conf_file",
                                  help="Specify config file", metavar="FILE")
     conf_parser.add_argument("--operation",help="Specify operation", metavar="STRING")
+    conf_parser.add_argument("--service_mode",help="Specify service mode",metavar="String")
     conf_parser.add_argument("--proj",help="Specify project", metavar="STRING")
     conf_parser.add_argument("--mgmt",help="Specify management-vn", metavar="STRING")
     conf_parser.add_argument("--left",help="Specify left-vn", metavar="STRING")
     conf_parser.add_argument("--right",help="Specify right-vn", metavar="STRING")
     conf_parser.add_argument("--svctemp",help="Specify service template", metavar="STRING")
     conf_parser.add_argument("--svcname",help="Specify service name", metavar="STRING")
+    conf_parser.add_argument("--chainedsvctemp",help="Specify chained service template", metavar="STRING")
+    conf_parser.add_argument("--chainedsvcname",help="Specify chained ervice name", metavar="STRING")
     conf_parser.add_argument("--svcmax",help="Specify max instances", metavar="STRING")
     conf_parser.add_argument("--auto_scale",help="Specify auto scale", metavar="STRING")
     conf_parser.add_argument("--policy",help="Specify policy", metavar="STRING")
@@ -289,6 +339,7 @@ def initialize(args_str = None):
     config_file = {
             'domain_name'     : 'default-domain',
             'proj_name'       : 'admin',
+            'service_mode'    : 'In-network',
             'mgmt_vn'         : 'mgmt-vn',
             'left_vn'         : 'left-vn',
             'right_vn'        : 'right-vn',
@@ -301,6 +352,8 @@ def initialize(args_str = None):
             'api_server_port' : '8082',
             'policy_name' : None,
             'sc_policy_name' : None,
+            'chained_service_name' : None,
+            'chained_service_template' : None,
         }  
 
     if args.conf_file:
@@ -327,51 +380,61 @@ def initialize(args_str = None):
         policy = "%s" % (args.policy)
     else:
         for k, v in config_file.iteritems():
-            if k is 'proj_name':
+            if k is 'service_mode':
+                svcmode = "--service_mode %s" % (v)
+            else:    
+                if k is 'proj_name':
                     proj = "--proj_name %s" % (v)
-            else:
-                if k is 'mgmt_vn':
-                        mgmt = "--mgmt_vn %s" % (v)
                 else:
-                    if k is 'left_vn':
-                            lft = "--left_vn %s" % (v)
+                    if k is 'mgmt_vn':
+                        mgmt = "--mgmt_vn %s" % (v)
                     else:
-                        if k is 'right_vn':
+                        if k is 'left_vn':
+                            lft = "--left_vn %s" % (v)
+                        else:
+                            if k is 'right_vn':
                                 rgt = "--right_vn %s" % (v)
-                        else:    
-                            if k is 'max_instances':
-                                maxinst = "--max_instances %s" % (v)
-                            else:
-                                if k is 'auto_scale':
-                                    if v == 'true':
-                                        scale = "--auto_scale"
-                                    else:
-                                        scale = ""
+                            else:    
+                                if k is 'max_instances':
+                                    maxinst = "--max_instances %s" % (v)
                                 else:
-                                    if k is 'instance_name':
-                                        inst = v
-                                    else:
-                                        if k is 'sc_inst_name':
-                                            sc_inst = v
+                                    if k is 'auto_scale':
+                                        if v == 'true':
+                                            scale = "--auto_scale"
                                         else:
-                                            if k is 'template_name':
-                                                temp = v
+                                            scale = ""
+                                    else:
+                                        if k is 'instance_name':
+                                            inst = v
+                                        else:
+                                            if k is 'sc_inst_name':
+                                                sc_inst = v
                                             else:
-                                                if k is 'policy_name':
-                                                    policy = v
+                                                if k is 'template_name':
+                                                    temp = v
                                                 else:
-                                                    if k is 'sc_policy_name':
-                                                        policy_sc = v
+                                                    if k is 'policy_name':
+                                                        policy = v
+                                                    else:
+                                                        if k is 'sc_policy_name':
+                                                            policy_sc = v
+                                                        else:
+                                                            if k is 'chained_service_name':
+                                                                chain_svc = v
+                                                            else:
+                                                                if k is 'chained_service_template':
+                                                                    chain_svc_temp = v
+                                                        
     if oper == 'add':
         if form:
             arguments = "%s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, maxinst, scale, inst, temp, policy)
         else:
-            arguments = "%s %s %s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, proj, mgmt, lft, rgt, maxinst, scale, inst, sc_inst, temp, policy, policy_sc)         
+            arguments = "%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s" % (conf, oper, svcmode, proj, mgmt, lft, rgt, maxinst, scale, inst, sc_inst, temp, policy, policy_sc, chain_svc, chain_svc_temp)         
     else:
         if form:
             arguments = "%s %s %s %s %s %s" % (conf, oper, proj, inst, temp, policy)
         else:
-            arguments = "%s %s %s %s %s %s %s %s" % (conf, oper, proj, inst, sc_inst, temp, policy, policy_sc)
+            arguments = "%s %s %s %s %s %s %s %s" % (conf, oper, proj, inst, sc_inst, policy, policy_sc, chain_svc)
     
     print "COMMAND ARGS %s" %(arguments)
     status = main(arguments)

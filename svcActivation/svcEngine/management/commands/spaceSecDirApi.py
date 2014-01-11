@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import os
 import sys
 import ConfigParser
@@ -34,14 +32,14 @@ class spaceSecDirApi(object):
         args, remaining_argv = conf_parser.parse_known_args(args_str.split())
         
         global_config = {
-            'space_user'         : 'super',
-            'space_pass'         : 'juniper123',
-            'space_server_ip'    : '127.0.0.1',
-            'space_server_port'  : '8080',
-            'space_q'            : 'MyQueue2',
-            'device'             : '127.0.0.1',
-            'cliuser'            : 'user',
-            'clipass'            : 'password',
+            'space_user' : 'super',
+            'space_pass' : 'juniper123',
+            'space_server_ip' : '127.0.0.1',
+            'space_server_port' : '8080',
+            'space_q' : 'MyQueue2',
+            'device' : '127.0.0.1',
+            'cliuser' : 'user',
+            'clipass' : 'password',
         }
 
         config = ConfigParser.SafeConfigParser()
@@ -338,7 +336,7 @@ def main(args_str = None):
     spApi.create_policy()
     myPolicies = spApi.find_policy()
     myPolicy = myPolicies['firewall-policies']['firewall-policy']
-    print json.dumps(myPolicy,  sort_keys=True, indent=2)
+    print json.dumps(myPolicy, sort_keys=True, indent=2)
     myPolicyId = myPolicy[2]
     print myPolicyId['id']
 
@@ -360,15 +358,15 @@ def initialize(args_str = None):
     args, remaining_argv = conf_parser.parse_known_args(args_str.split())
     
     config_file = {
-            'space_user'         : 'super',
-            'space_pass'         : 'juniper123',
-            'space_server_ip'    : '127.0.0.1',
-            'space_server_port'  : '8080',
-            'space_q'            : 'MyQueue2',
-            'device'             : '127.0.0.1',
-            'cliuser'            : 'user',
-            'clipass'            : 'password',
-        }  
+            'space_user' : 'super',
+            'space_pass' : 'juniper123',
+            'space_server_ip' : '127.0.0.1',
+            'space_server_port' : '8080',
+            'space_q' : 'MyQueue2',
+            'device' : '127.0.0.1',
+            'cliuser' : 'user',
+            'clipass' : 'password',
+        }
 
     if args.conf_file:
         config = ConfigParser.SafeConfigParser()
@@ -385,9 +383,9 @@ def initialize(args_str = None):
     
     print "COMMAND ARGS %s" %(arguments)
     status = main(arguments)
-    return status        
+    return status
 #end initialize
 
 if __name__ == "__main__":
-    main() 
+    main()
 
