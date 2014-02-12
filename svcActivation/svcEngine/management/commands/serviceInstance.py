@@ -201,15 +201,23 @@ class ServiceInstanceCmd(object):
             rgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.right_vn)
                     
         mgt_vn = "%s:%s:%s" % (self._args.domain_name, self._args.proj_name, self._args.mgmt_vn)
+        
+        if lft_vn == "" and rgt_vn == "":
+            intf_list = [{"virtual_network":mgt_vn},{"virtual_network":""},{"virtual_network":""}]
+        else:
+            intf_list = [{"virtual_network":mgt_vn},{"virtual_network":lft_vn},{"virtual_network":rgt_vn}]
             
-        si_prop = ServiceInstanceType(left_virtual_network = lft_vn, 
-                                      management_virtual_network = mgt_vn,
-                                      right_virtual_network = rgt_vn)
-
         #set scale out
         scale_out = ServiceScaleOutType(max_instances = self._args.max_instances, 
                                             auto_scale = self._args.auto_scale)
-        si_prop.set_scale_out(scale_out)
+            
+        si_prop = ServiceInstanceType(left_virtual_network = lft_vn, 
+                                      management_virtual_network = mgt_vn,
+                                      right_virtual_network = rgt_vn,
+                                      interface_list = intf_list,
+                                      scale_out = scale_out)
+        
+        #si_prop.set_scale_out(scale_out)
 
         si_obj.set_service_instance_properties(si_prop)
         st_obj = self._vnc_lib.service_template_read(id = st_obj.uuid)
