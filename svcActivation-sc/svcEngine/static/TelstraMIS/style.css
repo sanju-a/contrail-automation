@@ -1,0 +1,254 @@
+/* ==================== [start] - custom style for RHM - Connect & Discuss button - [start] ==================== */
+.rhm-connect-discuss .g-3{
+   width: 120px;    
+}
+.rhm-connect-discuss .g-5{
+   width: 228px;      
+}
+.rhm-connect-discuss .button{
+	font-size: 12px;		
+}
+/* ==================== [end] - custom style for RHM - Connect & Discuss button - [end] ==================== */
+
+/* ====================== Styles for the Mini Accordion (Progressive Disclosure) ====================== */
+ul.miniAccordion {
+	list-style: none;
+	list-style-image: none;
+	font: normal normal normal 1em/1.5 'Helvetica Neue', Ariel, sans-serif;
+	color: #333;
+	margin-left: 0;
+	padding-left: 0;
+}
+ul.miniAccordion li.miniAccordionItem {
+	margin-left: 0;
+	/*padding-left: 13px;*/
+	margin-bottom: 2px;
+} 
+ul.miniAccordion li.miniAccordionItem span a {
+	margin-left: 0;
+	padding-left: 13px;
+	background: transparent url('../images/mini-accordion.png') no-repeat 0 0;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	_position: relative; /* IE6 */
+} 
+ul.miniAccordion li.miniAccordionItem span a:hover {
+	text-decoration: underline;
+	color: #004D9D;
+}
+ul.miniAccordion li.miniAccordionItem.expanded {
+	margin-bottom: 13px;	
+} 
+ul.miniAccordion li.miniAccordionItem.expanded span a {
+	background: transparent url('../images/mini-accordion.png') no-repeat -1015px -1px;
+}
+ul.miniAccordion li.miniAccordionItem div.miniAccordionBody {
+	padding-left: 13px;
+}
+/* =================================== End of Mini Accordion styles =================================== */
+
+/* =================================== [Start] Styles for Home Page Subtemplate ================================= */
+
+
+    div#st-be-home-header * { margin:0px; padding:0px; border:none; }
+    
+    div#st-be-home-header { float:left; width:100%; margin-bottom:10px;  }
+    div#st-be-home-header .banner-container { float:left; width:724px; }
+    div#st-be-home-header .banner-container .rotating-banner { width:720px; }
+    div#st-be-home-header .banner-container .white-space { width:712px; height:10px;}
+    div#st-be-home-header .banner-container .menu-icons { overflow:auto; width:718px; border:1px solid #CCCCCC; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px;}
+    div#st-be-home-header .banner-container .menu-icons .icon-list{  list-style-type:none; float:left;  position:relative; left:6px; padding:5px 0px 8px 0px; height:110px;}
+    div#st-be-home-header .banner-container .menu-icons .icon-list li { position:relative; list-style-type:none; float:left; text-align:center; padding: 0px 15px 0px 15px; }
+    div#st-be-home-header .banner-container .menu-icons .icon-list li a { position:absolute; left:5px; top:0px; display:block; width:90px; padding-top:80px; }
+    div#st-be-home-header .banner-container .menu-icons .icon-list li a:link { text-decoration:none; }
+    div#st-be-home-header .banner-container .menu-icons .icon-list li a:visited { text-decoration:none; }
+    div#st-be-home-header .banner-container .menu-icons .icon-list li a:hover { text-decoration:underline; }
+    div#st-be-home-header .banner-container .menu-icons .icon-list li span { display: block; width:70px; height:70px;border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; }
+    .icon-mobiles{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -10px no-repeat; }
+    .icon-mobiles-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -10px no-repeat; background-color:#71CBF4; }
+    .icon-ethernet-dsl{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -152px no-repeat; }
+    .icon-ethernet-dsl-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -152px no-repeat;  background-color:#71CBF4; }
+    .icon-ip-telephony{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -81px no-repeat; }
+    .icon-ip-telephony-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -81px no-repeat;  background-color:#71CBF4; }
+    .icon-data-networks{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -1359px no-repeat; }
+    .icon-data-networks-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -1359px no-repeat;  background-color:#71CBF4; }
+    .icon-conferencing{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -1425px no-repeat; }
+    .icon-conferencing-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -72px -1425px no-repeat;  background-color:#71CBF4; }
+    .icon-mobile-assets-workforce{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -1498px no-repeat; }
+    .icon-mobile-assets-workforce-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -1498px no-repeat;  background-color:#71CBF4; }
+    .icon-government{ background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -1634px no-repeat; }
+    .icon-government-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -1634px no-repeat;  background-color:#71CBF4; }
+    .icon-small-business { background:url('/business-enterprise/download/image/business-icon-sprites.png') 0px -1710px no-repeat; }
+    .icon-small-business-hover { background:url('/business-enterprise/download/image/business-icon-sprites.png') -71px -1710px no-repeat; background-color:#71CBF4; }
+    
+    div#st-be-home-header .comm-chanel-container { float:left; width:238px;}
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links { margin:5px 15px; list-style-type:none; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links li { height:39px; margin-bottom: 8px; line-height: 15px;}
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links a:link { text-decoration:none; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links a:visited { text-decoration:none; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links a:hover { text-decoration:underline; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links li img { vertical-align: middle; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links li span {  display: inline-block; padding-left: 6px; vertical-align: middle; width: 94px; }
+    div#st-be-home-header .comm-chanel-container .comm-chanel-links .dotted {  border-bottom-color: #CCCCCC; border-bottom-style: dotted; border-bottom-width: 1px; }
+
+	div#st-be-home-header #templateBanner { height:200px !important; margin-bottom:0px !important; }
+	div#st-be-home-header #default-banner { height:200px !important; }
+	
+	#content-body div#st-be-home-header .featureBanner .fbIconList li.numeric a,
+	#maincol div#st-be-home-header .featureBanner .fbIconList li.numeric a {
+    	background-color: #FAFAFA;
+    	height: 18px;
+    	width: 15px;
+	}
+	
+	#content-body div#st-be-home-header .featureBanner .fbIconList li.numeric,
+	#content-body div#st-be-home-header .featureBanner .fbIconList
+	{
+		float:left !important;
+	}
+
+/* =================================== [End] Styles for Home Page Subtemplate ================================= */
+
+/* =================================== [Start] Styles for Feedback tab  ================================= */
+body a#crowdsupport-feedback-tab, body a#crowdsupport-feedback-tab:link {
+    background-position: 0px 50% !important;
+    background-repeat: no-repeat !important;
+    display: block !important;
+    height: 188px !important;
+    margin: -45px 0 0 !important;
+    padding: 0 !important;
+    position: fixed !important;
+    text-indent: -9000px;
+    top: 40% !important;
+    left: 0 !important;
+    width: 25px !important;
+    z-index: 100001 !important;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F58220;
+    background-image: url("../images/connect-discuss-orange.png");    
+    border-color: #F58220 #F58220 #F58220 -moz-use-text-color;
+    border-style: outset outset outset none;
+    border-width: 1px 1px 1px medium;   
+    _position: absolute !important
+}
+body a#crowdsupport-feedback-tab:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-image: url("../images/connect-discuss-blue.png");
+    background-color: #0058A9;
+    border-color: #0058A9 #0058A9 #0058A9 -moz-use-text-color;   
+    border-style: outset outset outset none;
+    border-width: 1px 1px 1px medium;
+    cursor: pointer;
+    _position: absolute !important
+}
+
+/* =================================== [End] Styles for Feedback tab ================================= */
+
+
+/* =================================== [Start] Styles for Telstra green logo  ================================= */	
+	
+#header-search .search-keywords {	
+	background: #fff url("../images/business-sprites.png") no-repeat;
+	width: 161px !important;	
+}
+#header-search .menu ul li {
+	background: #fff url("../images/business-sprites.png") no-repeat;
+}	
+#footer #social-media-links a {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("../images/business-sprites.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    padding-left: 27px;
+}
+/* =================================== [End] Styles for Telstra green logo  ================================= */
+
+/* =================================== [START] Styles for contact us in header ================================= */
+
+.gh-tbe-contact-us { background:none !important; border:none !important;}
+
+/* =================================== [End] Styles for contact us in header  ================================= */
+
+/* =================================== [START] Styles for Log in to Self Service in header ================================= */
+#header-support-nav ul ul {
+                width: 100%;
+                _width:213px; /*IE6 rule*/
+}
+
+/* =================================== [END] [START] Styles for Log in to Self Service in header ================================= */
+
+
+
+/* =================================== [START] Styles for icons in My Account page [START] ================================= */
+
+     .my-account-icons * { margin:0px; padding:0px; border:none; }
+     .my-account-icons { float:left;  }
+     .my-account-icons  .icon-list{  list-style-type:none; float:left;  position:relative; left:0px; padding:5px 0px 8px 0px; width:600px; height:260px; margin-left:8px;}
+     .my-account-icons  .icon-list li { position:relative;  float:left; text-align:center; padding: 0px 15px 0px 15px; margin-left:0px;}
+     .my-account-icons  .icon-list li.second-row { position:relative;  float:left; text-align:center; padding: 0px 15px 0px 15px; top:60px; margin-left:0px;}
+     .my-account-icons  .icon-list li a { position:absolute; left:5px; top:0px; display:block; width:90px; padding-top:80px; }
+     .my-account-icons  .icon-list li a:link { text-decoration:none; } 
+     .my-account-icons  .icon-list li a:visited { text-decoration:none; }
+     .my-account-icons  .icon-list li a:hover { text-decoration:underline; }
+     .my-account-icons  .icon-list li div { display: block; width:70px; height:70px; }
+     .icon-pay-a-bill{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px 18px no-repeat; }
+     .icon-international-roaming{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -2047px no-repeat; }
+     .icon-get-puk-code{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -1830px no-repeat; }
+     .icon-receive-a-single-bill{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px 18px no-repeat; }
+     .icon-moving-offices{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -625px no-repeat; }
+     .icon-update-billing-address{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px 18px no-repeat; }
+     .icon-service-status{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -1408px no-repeat; }
+     .icon-switch-to-telstra{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -2402px no-repeat; }
+     .icon-manage-phone-features{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -2121px no-repeat; }
+     .icon-add-or-cancel-messagebank{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -700px no-repeat; }
+     .icon-manage-call-barring{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -768px no-repeat; }
+     .icon-forgotten-password{ background:url('/business-enterprise/download/image/business-my-account-icon-sprites.png') 0px -839px no-repeat; }
+
+/* =================================== [END] Styles for icons in My Account page [END] ================================= */
+
+/* Override styles for the Log in to Self Service menu */
+.has-tips {
+
+}
+	.has-tips .tips {
+		top: 0 !important;
+		font-size: 11px;
+		color: #eee !important;
+		background-color: #B32034;
+		position: relative !important;
+		padding-bottom: 10px !important;
+	}
+		.has-tips .tips li {
+			background: transparent url("../images/business-sprites-ex.png") no-repeat;
+			padding-left: 44px !important;
+			padding-right: 10px !important;
+			background-position-y: 1px\9; /* IE8 and below */
+		}
+	.has-tips.last a {
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		border-radius: 0 !important;
+	}
+		.has-tips.last .tips {
+			-webkit-border-bottom-right-radius: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-moz-border-radius-bottomright: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			padding-bottom: 10px !important;
+		}
+/* End of override styles for the Log in to Self Service menu */

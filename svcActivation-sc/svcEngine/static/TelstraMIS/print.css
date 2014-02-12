@@ -1,0 +1,157 @@
+body {
+	font: 62.5%/1.5 "Helvetica Neue",Arial,sans-serif;
+	color: #333;
+	background: #fff;
+}
+
+img {
+	border: none;
+}
+
+input, select, textarea, button {
+	font-family: inherit;
+	font-size: 1em;
+	color: #333;
+}
+
+a:link, a:visited {
+	color: #333;
+}
+
+#header {
+	clear: both;
+	overflow: auto;
+	margin-top: 0;
+	border-bottom: 4px solid #757575;
+	padding-top: 0.83333em; /* 10px */
+    font-size: 1.2em;
+}
+
+#header h1, #header h2 {
+    margin: 0;
+}
+
+#header .logo {
+	float: left;
+	clear: none;
+	margin: 0 0 9px;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 2.16667em;
+}
+
+#header .logo a {
+	display: block;
+	width: 34px;
+	height: 40px;
+	padding: 4px 31px 4px 30px;
+}
+
+#channel-hover {
+	left: 241px;
+}
+
+#header .channel {
+	float: left;
+	clear: none;
+	width: 135px;
+	margin: 0 0 9px;
+}
+
+#header .channel a {
+	display: block;
+	height: 24px;
+	padding: 11px 17px 13px 0;
+	color: #757575;
+}
+
+#page-body {
+	font-size: 1.2em;
+}
+
+#page-body .breadcrumbs {
+	margin: 0;
+	padding: 10px 10px 8px 0;
+	font-size: 0.91667em;
+}
+
+#page-body .breadcrumbs a:link, #page-body .breadcrumbs a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+#page-body .breadcrumbs ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#page-body .breadcrumbs ul li {
+	display: inline-block;
+}
+
+#page-body .breadcrumbs ul li a:after {
+	padding-left: 0.35em;
+	content: ">";
+}
+
+
+#skipnav, #header .nav, #header-search, #footer, #secondary-navigation, .section-title, 
+#logo-hover, #channel-hover,
+#uservoice-feedback, .social-sharing,
+.function.link.print,
+.noprint
+{
+	display: none !important;
+}
+
+.contentAccordion {
+display:block !important;
+}
+
+.hiddenElement {
+display:none !important;
+} 
+
+.no-js .lightbox-content{
+	display: none !important;
+}
+
+.tableLayout { 
+	width:100%; 
+	margin:0px; 
+	padding:0px; 
+	margin-left:0px; 
+	margin-bottom:1em; 
+	border-collapse: collapse; 
+	border:1px solid #ccc; 
+}
+.tableLayout th { 
+	text-align:left; 
+	border: 1px solid #ccc; 
+	padding: 10px 10px; 
+	background-color:#f4f4f4;
+}
+.tableLayout td { 
+	border: 1px solid #ccc; 
+	padding: 10px 10px; 
+}
+
+.clearfix, .aside, .container-row, .container, 
+.content, .split_25, .split_50, .split_33, .split_66 {
+    display: block;
+	clear: both;
+	position: static !important;
+}
+
+.header, .content .clearfix {
+	height: auto !important;
+}
+
+#content-body img{
+	position: static !important;
+}
+
+#content-body .aside {
+	display: none !important;
+}

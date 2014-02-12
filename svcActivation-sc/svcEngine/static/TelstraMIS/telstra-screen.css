@@ -1,0 +1,280 @@
+/* START - arrow style for links - CHRIS*/
+a.arrow {
+	background: url(../themes/v10/images/sprites.png) no-repeat -1186px -1902px;
+	padding-left: 11px;
+}
+
+a.arrow:link, a.arrow:visited {
+	margin-bottom: 4px;
+	background: url(../themes/v10/images/sprites.png) no-repeat -1186px -1900px;
+	color: #000;
+	display: inline-block;
+	padding: 0 0 0 11px;
+	text-decoration: none;
+}
+a.arrow:hover, a.arrow:active {
+	color: #004D9D;
+	text-decoration: underline;
+}
+/* END - arrow style for anchors */
+
+/* START - Custom styles for RT_V10_GENERIC_AD_BANNERS- JEREMY */
+#promoWrap {
+    margin-bottom: 10px;
+}
+#promoWrap ul, #promoWrap li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#promoWrap li.withSpacing {
+    margin-right: 10px !important;
+}
+#promoWrap li {
+    float: left;
+}
+#content-body .featureBanner.clearfix {
+	margin-bottom: 10px;
+}
+/* END - Custom styles for RT_V10_GENERIC_AD_BANNERS */
+
+/* START - Custom styles for RT_V10_GENERIC_RHM_LINKS -NAZ*/
+.aside .container .content .with-icon .label a {
+    cursor: pointer;
+}
+.aside .container .content .with-icon .label a:hover, .aside .container .content .with-icon .label a:active {
+	text-decoration: underline;
+}
+/* END - Custom styles for RT_V10_GENERIC_RHM_LINKS -NAZ */
+
+/* START - position PageConfig placeholder centre of page-CHRIS */
+span#PageConfig {
+	position:absolute; left: 50%;
+}
+/* END */
+
+/* START - style for Lightbox header color- NAZ 27-10-2011*/
+.ob-header-colour-a2  {color: #b32034 !important;}
+.ob-header-colour-a3  {color: #e8491b !important;}
+.ob-header-colour-b2  {color: #006833 !important;}
+.ob-header-colour-b3  {color: #13a538 !important;}
+.ob-header-colour-c2  {color: #005d61 !important;}
+.ob-header-colour-c3  {color: #008b8a !important;}
+.ob-header-colour-d2  {color: #004d9d !important;}
+.ob-header-colour-d3  {color: #0078c0 !important;}
+.ob-header-colour-e2  {color: #382c82 !important;}
+.ob-header-colour-e3  {color: #5e4f9c !important;}
+.ob-header-colour-f2  {color: #691260 !important;}
+.ob-header-colour-f3  {color: #a31781 !important;}
+.ob-header-colour-f4  {color: #e8308a !important;}
+
+/* END - style for Lightbox header color- NAZ 27-10-2011*/
+
+
+/* START - reusable class for hiding elements */ 
+.js .hiddenElement {display: none;}
+.no-js .hiddenElement {display:''}
+/* END - reusable class for hiding elements */ 
+
+/* START - global vertical content styles - used on /home-phone/features-services - d205448 20111024 */
+.verticalTabbedContentWrap {
+	clear:left;
+	position: relative;
+	padding-top:10px;
+	zoom:1;
+	margin-bottom:20px;
+}
+.verticalTabbedContentWrap table.verticalTabbedContent .tabContents {
+	top:10px;
+	position:absolute;
+	left:197px;
+	display:none;
+	border:1px solid #CCCCCC;
+	width:571px;
+	background:#fff;
+	padding:10px 15px 16px;
+	margin-bottom: 10px
+}
+table.verticalTabbedContent {
+	border-collapse: collapse;
+	border:1px solid #CCCCCC;
+	width: 100%;
+}
+
+table.verticalTabbedContent tr th, table.verticalTabbedContent tr td {
+	border:1px solid #CCCCCC;
+	*border-right:none;
+}
+table.verticalTabbedContent tr.current td div.tabContents {
+	display:block;
+}
+table.verticalTabbedContent tr.current th {
+	background-color:#F2F2F2;
+	padding: 8px;
+	font-weight:bold;
+	width:181px;
+	text-align:left;
+}
+table.tableLayout th {
+	background-color:#E5E5E5 !important;
+}
+table.verticalTabbedContent tr.current td.hidden {
+	visibility:visible;
+	border:none;
+}
+table.verticalTabbedContent tr th {
+	padding: 8px;
+	font-weight: normal;
+	width: 181px;
+	text-align:left;
+}
+table.verticalTabbedContent table.tableLayout th {
+	width:auto!important;
+}
+
+table.verticalTabbedContent th a {
+	padding-left: 10px;
+	margin-left:5px;
+	background-position: 1px 3px;
+	display: block;
+	text-decoration: none;
+	background-image: url("../themes/v10/images/sprites.png");
+	background-position: -1186px -1900px;
+}
+table.verticalTabbedContent th a:hover, table.verticalTabbedContent th a:active {
+	color: #004D9D;
+	text-decoration: underline;
+}
+table.verticalTabbedContent td {
+	padding:8px;
+}
+table.verticalTabbedContent td.hidden {
+	visibility:hidden;
+	border:none;
+}
+table.verticalTabbedContent tr.filteredOut {
+	display:none;
+}
+table.verticalTabbedContent h2 {
+	margin-bottom:10px;
+}
+table table {
+	margin-top:10px;
+	}
+table.verticalTabbedContent .viewFaqLink{
+	float:right;
+	margin-top:-30px;
+}
+.no-js .verticalTabbedContentWrap table.verticalTabbedContent .tabContents {
+	position:relative;
+	left:0;
+	display:block;
+	border:1px solid #fff;
+}
+/* END - global vertical content styles - used on /home-phone/features-services - d205448 20111024 */
+
+/* fix no left nav and wide right column on personal page - CHRIS 20110829 */
+/* START FIX */
+.grid_13 .contentAccordionWrapper .split_33 .split_66 {
+    width: 112px;
+}
+.grid_13 .split_25 {
+    width: 160px;
+}
+.grid_13 .split_33 .split_33 {
+    width: 72px;
+}
+.grid_13 .split_33 .split_66 {
+    width: 112px;
+}
+/* END FIX */
+
+/*START FIX FOR PAGECONTENT PADDING REMOVAL - JEREMY - PB-813*/
+#page-content.grid_18 { padding-top: 0px; }
+#page-content.grid_15 { padding-top: 0px; }
+#page-content.grid_13 { padding-top: 0px; }
+#page-body .top_gutter { padding: 5px 0px; }
+/*END FIX FOR PAGECONTENT PADDING REMOVAL - JEREMY - PB-813*/
+
+/*START - orange-arrow style for mix of text-link -NAZ*/
+ul.li-arrow, .container ul.li-arrow {
+    list-style-type: none;
+    margin: 0;
+}
+
+ul.li-arrow li{
+	margin: 0 0 4px 0;
+	background: url(../themes/v10/images/sprites.png) no-repeat -1186px -1900px;
+	color: #000;	
+	padding: 0 0 0 11px;
+}
+
+ul.li-arrow a:link, ul.li-arrow a:visited {
+	color: #000000;
+    display: inline-block;    
+    text-decoration: underline;
+}
+
+ul.li-arrow a:hover, ul.li-arrow a:active {
+	color: #004D9D !important;
+	text-decoration: underline;
+}
+/*END - orange-arrow style for mix of text-link -NAZ*/
+
+/*START - button for search - NAZ*/
+#search-section .search-button {	
+	background: url("../themes/v10/images/sprites.png") repeat-x scroll 0 -1500px #FEFEFE;
+}
+/*END - button for search - NAZ*/
+
+/*START - dotted dividers in containers*/
+.container .content hr.dotted {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px dotted #CCC;
+	border-left: none;
+}
+
+.container .content hr.align-bottom {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+	left: 0px;
+}
+/*END - dotted dividers in containers*/
+
+/**********************************************************/
+/* TEMPORARY FIXES GO BELOW THIS LINE */
+/**********************************************************/
+
+/*START Fix for RUTD-407*/
+h1 .heading-40, h2 .heading-40, h3 .heading-40, h4 .heading-40, h5 .heading-40, h6 .heading-40, p .heading-40, 
+h1 .heading-30, h2 .heading-30, h3 .heading-30, h4 .heading-30, h5 .heading-30, h6 .heading-30, p .heading-30, 
+h1 .heading-24, h2 .heading-24, h3 .heading-24, h4 .heading-24, h5 .heading-24, h6 .heading-24, p .heading-24, 
+h1 .heading-20, h2 .heading-20, h3 .heading-20, h4 .heading-20, h5 .heading-20, h6 .heading-20, p .heading-20, 
+h1 .heading-16, h2 .heading-16, h3 .heading-16, h4 .heading-16, h5 .heading-16, h6 .heading-16, p .heading-16 {
+	color: #4C4E52 !important;
+}
+/*END Fix for RUTD-407*/
+
+/*==== RUTD - 484 - Temporary style for "Divider between Global Header and Main Content"  ====*/
+
+/*div#primary-navigation.top-solid-grey-divider {padding-bottom:0px;}*/
+
+/*==== RUTD - 484 - Temporary style for "Divider between Global Header and Main Content"  ====*/
+
+/*== Temporary style for sitemap indented list, should be removed once official style is available - START - Jeremy ==*/
+.linkList.indentedList {
+	padding-left: 10px; 
+	margin-top: 0px;
+}
+/*== Temporary style for sitemap indented list, should be removed once official style is available - END - Jeremy ==*/
+
+
+/* Header update for SEO (TBTEG-416) */
+#primary-navigation .flyout .popular-pages span {
+	margin: 0 0 10px !important;
+	font-size: 1em;
+	font-weight: bold;
+	display: block;
+}

@@ -6,7 +6,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Contrail Demo</title>
-
 <link href="{{STATIC_URL}}demo_files/css.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/style.css">
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}demo_files/slider.css">
@@ -19,8 +18,6 @@
 <script type="text/javascript" src="{{STATIC_URL}}demo_files/jquery.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}demo_files/custom.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}demo_files/mail.js"></script>
-
-
 <!--[if ie 9]>
 <link rel="stylesheet" type="text/css" href="CSS/iestyle.css"/>
 <![endif]-->
@@ -37,26 +34,6 @@
                 return results[1];
         }
         
-        function getMISOnRampHrefConfirm() {
-        	var id = getParam('config');
-            var param = "orderdone?config="+id;
-            document.getElementById("orderOk").href = param;
-            document.getElementById("orderOk1").href = param;
-        }
-        
-        function getCancelMISOnRampHref() {
-        	var id = getParam('config');
-            var param = "cancel?operation=del&config="+id;
-            document.getElementById("cancelMiaas").href = param;
-        }
-        
-        function getMISOnRampHref() {
-        	var id = getParam('config');
-            var param = "ratesatt/misonramp?operation=add&config="+id;
-            document.getElementById("miaas").href = param;
-            document.getElementById("mfaas").href = param;
-        }
-        
         function getAccountForCancelHref() {
         	var id = getParam('config');
             var param = "ordercancel?operation=del&config="+id;
@@ -69,10 +46,10 @@
             document.getElementById("ordersvcs").href = param;
         }
 </script>
-<body test="test" onload="getMISOnRampHrefConfirm();getMISOnRampHref();getCancelMISOnRampHref();getAccountForCancelHref();getAccountForSvcsHref()">
+<body onload="getAccountForCancelHref();getAccountForSvcsHref()">
 	<div id="header">
     	<div class="inner">
-        	<div id="logo"><h1><a href="#" hidden>Contrail Demo</a></h1></div>
+        	<div id="logo"><h1><a href="contrail_demo_with_nfv.htm">Contrail Demo</a></h1></div>
              <ul id="nav">
         	<li><a href="" id="orderCancel" onclick="getAccountForCancelHref()">Your Account</a></li>
             <li class=""><a href="" id="ordersvcs" onclick="getAccountForSvcsHref()">Order Services</a></li>
@@ -110,87 +87,18 @@
 
  <div class="inner centered">
         
-        	<div align="Left"><br><h3>Hello <strong>Mock Financial</strong>,</h3>
-        	<p>Order new services available in your region below:
+        	<div align="Left"><br><h3>Hello <strong>Mock Financial!</strong></h3>
+        	<p>your cancellation request for the service(s) has been processed.</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-</p></div>
+		
+
+
+</div>
         	
        
         </div>
 
-    <div class="outer planner">
-    <div style="width: 1000px; height: 425px;" class="inner slidern">
-    
-		<div style="position: absolute; top: 0px; left: 0px; display: block; z-index: 3; opacity: 1;" class="slide">
-        <ul class="pricing">
-			<li class="" style="z-index: 5; box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.14);">
-			<ul>
-				<li class="title">
-				<div class="pname">
-					<h3>Basic</h3>
-				</div>
-				<div class="pprice">
-					<p style="color:white;font-size:25px;">$0.005<small>/min</small></p>
-				</div>
-				</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Internet Access</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/basic_firewall.png" ></img></li>
-				<li><a href="" id="miaas">Order Online Now</a></li>
-			</ul>
-			</li>
-			<li style="z-index: 999; box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.224);" class="green highlight">
-			<ul>
-				<li class="title">
-				<div class="pname">
-					<h3>Elite</h3>
-				</div>
-				<div class="pprice">
-					<p style="color:white;font-size:25px;">$34.99<small>/mo</small></p>
-				</div>
-				</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elite Firewall &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bundle&nbsp;&nbsp;&nbsp;(Firewall + DDoS)</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/elite_firewall.png" height="128px"></img></li>
-				
-				<li><a href="" id="mfaas" onclick="getMISOnRampHref()">Order Online Now</a></li>
-			</ul>
-			</li>
-			<li class="orange">
-			<ul>
-				<li class="title">
-				<div class="pname">
-					<h3>IDS</h3>
-				</div>
-				<div class="pprice">
-					<p style="color:white;font-size:25px;">$19.99<small>/mo</small></p>
-				</div>
-				</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IDS</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/ids.png" ></img></li>
-				<li><a href="" id="orderOk" onclick="getMISOnRampHrefConfirm()">Order Online Now</a></li>
-			</ul>
-			</li>
-			<li class="red">
-			<ul>
-				<li class="title">
-				<div class="pname">
-					<h3>IPS</h3>
-				</div>
-				<div class="pprice">
-					<p style="color:white;font-size:25px;">$19.99<small>/mo</small></p>
-				</div>
-				</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IPS</li>
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{STATIC_URL}}demo_files/ips.png" ></img></li>
-				<li><a href="" id="orderOk1" onclick="getMISOnRampHrefConfirm()">Order Online Now</a></li>
-			</ul>
-			</li>
-		</ul>
-        </div>
-        
-        		
-        
-        </div>
-        </div>
+  
       
        
         

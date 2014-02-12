@@ -1,0 +1,529 @@
+/*
+ * 
+ * 		PLEASE CONTACT GREG TAFF [gt7886]
+ * 		BEFORE MAKING ANY CHANGES TO THIS FILE
+ * 
+ */
+
+html {width:100%;}
+html body{margin:0px;width:100%;padding-top:0px;}
+
+#pageID {
+	position: absolute;
+	text-indent: -9999px;
+	top: -20px;
+	width: 100px;
+}
+
+#globalNav  {position:relative;width:100%;z-index:90;height:190px;}
+
+/* reset CSS so the page we land on doesn't accidentally provide style rules */
+#globalNav li a {position:static;}
+#globalNav a:focus {text-decoration:underline;}
+#globalNav * {
+	line-height:15px; 
+	text-align:left;
+	font-weight:normal;
+	color:inherit;
+	font-family:arial, helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	list-style:none; 
+	z-index:1;
+}
+
+#globeOnly {width:970px;margin:0 auto 10px;padding-top:11px;padding-left:22px;}
+
+.es_US #segMenuBar #segMenuItemBusiness {width:105px;}
+.es_US #segMenuBar #segMenuItemAboutATT {width:117px;}
+.es_US #segMenuBar #segMenuItemFindAStore {width:105px;}
+.es_US #segMenuBar #segMenuItemInternational {width:85px;}
+.es_US #segMenuBar #segMenuItemShopATT {width:103px;}
+.es_US #segMenuBar #segMenuItemmyATT {width:76px;}
+.es_US #segMenuBar #segMenuItemATTSupport {width:100px;}
+.es_US #segMenuBar #segcenterSpan { margin:0 344px -34px 301px; }
+.es_US .ecom #segMenuBar #segcenterSpan { margin:0 190px -34px 301px; }
+.ecom #segMenuBar #segcenterSpan { margin:0 201px -34px 274px; }
+
+.es_US .ecom #segMenuBar .globe #segcenterSpan { margin:0 301px -34px 279px; }
+.ecom #segMenuBar .globe #segcenterSpan { margin:0 274px -34px 280px; }
+
+
+/* ipad specific CSS */
+.ipad #tieredNav ul.secondaryMenu {height:44px;}
+.ipad #segMenuBar .segMenu a.segMenuItem {height:34px;}
+.ipad #primaryMenu ul li #primary_Shop  {width:98px;}
+.ipad #primaryMenu ul li #primary_Shop span {width:94px;}
+.ipad #primaryMenu ul li #primary_Support  {width:112;}
+.ipad #primaryMenu ul li #primary_Support span {background-position:-273px -89px;width:110px;}
+.ipad #primaryMenu ul li.selected #primary_Support span {background-position:-273px -180px;}
+
+
+
+#segMenuBar { width:100%; height:34px;  position:absolute;top:0;left:0;background:url("//0.ecom.attccc.com/images/global/bg-segmentation-menu.gif") no-repeat center; z-index:100;}
+#segMenuBar #stub { width:974px;height:34px;background:url('//0.ecom.attccc.com/images/global/bg-segmentation-sprite.png') repeat right -204px;margin:auto;}
+#segMenuBar .segMenu li.rightMost a span {position:relative;right:-2px;margin-left:12px;height:10px;}
+#segMenuBar .segMenu li {margin:0;float:left;list-style-type:none;}
+#segMenuBar .segMenu li a.segMenuItem.hasSubMenu span {background-position: right -68px;padding-right:24px;}
+#segMenuBar .segMenu li a.segMenuItem.hasSubMenu {background-position: left -68px;}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron span {background-position: right -34px;}
+#segMenuBar .segMenu li a.segMenuItem.selectedChevron {background-position:left -34px;color:#fff;}
+#segMenuBar .segMenu li a.segMenuItem.over span {background-position: right 0px;color:#515151;}
+#segMenuBar .segMenu li a.segMenuItem.over {background-position:left 0px;}
+#segMenuBar .segMenu a.segMenuItem span {display:block;padding: 13px 14px 11px 0px; margin-left:14px;background:url("//0.ecom.attccc.com/images/global/bg-segmentation-sprite.png") right -170px;}
+#segMenuBar .segMenu a.segMenuItem .segMenuNewWin {display:inline !important;padding:0px 9px 0 1px; margin:0 0 0 3px; background:url("/images/global/bg-primary-sprite.png") no-repeat scroll -441px -233px transparent;width:12px;height:9px !important;}
+
+#segMenuBar .segMenu a.segMenuItem {
+	cursor:default;
+	font-size:12px;
+	background:url("//0.ecom.attccc.com/images/global/bg-segmentation-sprite.png") left -170px #808080;
+	color:white;
+	margin:0;
+	float:left;
+	height:34px;
+	padding:0;
+	overflow:hidden;
+	display:block;
+}
+
+#segMenuBar .segMenu li a.segMenuItem.hasURL:hover span{ text-decoration:underline;cursor:pointer}
+
+#segMenuBar .segMenu li a.segMenuItem.selected span {background:url("//0.ecom.attccc.com/images/global/bg-segmentation-sprite.png") right -136px;}
+#segMenuBar .segMenu li a.segMenuItem.selected {background:url("//0.ecom.attccc.com/images/global/bg-segmentation-sprite.png") left -136px;color:#515151;}
+
+#segMenuBar #segMenuItemShopATT {width:95px;}
+#segMenuBar #segMenuItemmyATT {width:77px;}
+#segMenuBar #segMenuItemATTSupport {width:108px;}
+#segMenuBar #segMenuItemPersonal {width:100px;}
+#segMenuBar #segMenuItemBusiness {width:100px;}
+#segMenuBar #segMenuItemAboutATT {width:95px;}
+#segMenuBar #segMenuItemLinkedAccounts {width:155px;}
+#segMenuBar #segMenuItemFindAStore {width:96px;}
+#segMenuBar #segMenuItemInternational {width:105px;overflow:hidden}
+
+#segMenuBar div.segSubMenu {
+	overflow:visible;
+	position:absolute;
+	display:none;
+	list-style:none;
+	margin:0;
+	clear:left;
+	margin: 0 -100px 0 0;
+	padding:0 0 0 0;
+	float:left;
+	background:url("//0.ecom.attccc.com/images/global/bg-rounded-bottom.gif") bottom right;
+}
+#segMenuBar div.segSubMenu ul{
+	padding-bottom:13px;
+	overflow:hidden;
+	position:relative;
+	left:-6px;
+	background:url("//0.ecom.attccc.com/images/global/bg-rounded-bottom.gif") bottom left;
+	list-style:none;
+	margin:0;
+	clear:left;
+	float:left;
+	width: 140px;
+}
+
+#segMenuBar div.segSubMenuDivider {border-bottom:1px dotted #ccc;margin:-14px 0 5px;}
+#segMenuBar div.segSubMenu ul li {margin:0;padding:5px 10px 0 14px ;float:none;list-style-type:none;line-height:22px;}
+#segMenuBar div.segSubMenu ul li a {font-size:12px;color:#3381B7;}
+#segMenuBar div.segSubMenu ul li a:hover {text-decoration:underline;}
+#segMenuBar #leftSegMenu { float:left;  }
+#segMenuBar #rightSegMenu { float:right; }
+#segMenuBar #segMenuContainer {position:relative;width:974px;margin:auto;height:34px;}
+#segMenuBar #segcenterSpan {background:url("//0.ecom.attccc.com/images/global/bg-segmentation-menu.gif") repeat-x; padding:0; margin:0 201px -34px 274px; height:34px;}
+
+#pageID:focus, #pageID:active { text-indent: 0; top: 14px; left: 30em; z-index: 100; color: #fff; }
+
+#globalNavUserInfo {
+	color:#666;
+	font-size:12px;
+	height:34px;
+	margin:auto;
+	position:relative;
+	top:34px;
+	width:970px;
+}
+
+#globalNavUserInfo a {color:#3381B7;}
+#globalNavUserInfo a:hover {text-decoration:underline;}
+#globalNavUserInfo div {padding-top:9px;text-align:right;}
+
+#tieredNav {
+	position:relative;
+	width:974px;
+	margin:auto;
+	background:url("//0.ecom.attccc.com/images/global/bg-rounded-bottom.gif") bottom right;
+	top:35px;
+}
+
+#globalNav #tieredNav .noHref {cursor:default;}
+#globalNav #tieredNav .noHref:hover {text-decoration:none;}
+
+.es_US #primaryMenu ul {background:url("/images/global/bg-es-primary-sprite.png") no-repeat;}
+.es_US #primaryMenu ul li .primaryMenuItem span {background:url("/images/global/bg-es-primary-sprite.png");}
+.es_US #primaryMenu #primary_Search  {background:url("/images/global/bg-es-primary-sprite.png") -243px -44px;float:right;height:44px;width:222px;}
+.es_US #primaryMenu #primary_CartCount {background:url("/images/global/bg-es-primary-sprite.png") -350px -112px;}
+
+#primaryMenu {height:44px;margin:0 auto;}
+#primaryMenu ul {background:url("/images/global/bg-primary-sprite.png") no-repeat;height:44px;position:relative;margin-bottom:-1px;width:974px;}
+#primaryMenu ul li {float:left;margin:0 0 0 -6px;height:44px;position:relative;z-index:1}
+#primaryMenu ul li.selected {z-index:2}
+#primaryMenu ul li .primaryMenuItem  {display:block;float:left;line-height:44px;position:relative;left:5px;font-size:16px;color:#FF8D07;cursor:pointer;}
+#primaryMenu ul li .primaryMenuItem  span {background:url("/images/global/bg-primary-sprite.png");height:44px;display:block;float:left;position:absolute;top:0;left:-5px;}
+#primaryMenu ul li #primary_Shop  {width:98px;}
+#primaryMenu ul li #primary_MyATT  {width:114px;}
+#primaryMenu ul li #primary_Support  {width:112px;}
+#primaryMenu ul li #primary_Shop span {background-position:-71px -89px;width:94px;}
+#primaryMenu ul li #primary_MyATT span {background-position:-164px -89px;width:110px;}
+#primaryMenu ul li #primary_Support span {background-position:-273px -89px;width:110px;}
+#primaryMenu ul li.selected #primary_Shop span {background-position:-71px -180px;}
+#primaryMenu ul li.selected #primary_MyATT span {background-position:-164px -180px;}
+#primaryMenu ul li.selected #primary_Support span {background-position:-273px -180px;}
+#primaryMenu #primary_Search  {background:url("/images/global/bg-primary-sprite.png") -243px -44px;float:right;height:44px;width:222px;}
+#primaryMenu #primary_Search  input {height:auto;margin:17px 0px 0px 22px;float:left;padding:0px;width:140px;font-size:11px;color:#656565;line-height:12px;outline:0;}
+#primaryMenu #primary_Search  button {display:inline;float:right;height:20px;width:20px;margin:18px 24px 0px 0px;cursor:pointer;padding-top:20px;overflow:hidden;}
+#primaryMenu #primary_ATTLogo a {width:69px;background:transparent;}
+#primaryMenu #primary_ATTLogo a:hover {text-decoration:none;}
+#primaryMenu #primary_ATTLogo a:focus {text-decoration:none;}
+#primaryMenu #primary_ATTLogo {
+	float:left;
+	height:44px;
+	width:74px;
+	background:url("/images/global/bg-primary-sprite.png");
+	background-position:-3px -90px;
+	margin:0px;
+}
+
+#primaryMenu #primary_CartCount a {padding:19px 0 0 40px;display:block;color:white;font-size:12px;}
+#primaryMenu #primary_CartCount:hover {background-position:-350px -168px;}
+#primaryMenu #primary_CartCount:active {background-position:-350px -224px;}
+#primaryMenu #primary_CartCount {
+	display:block;
+	float:right;
+	height:44px;
+	width:70px;
+	background:url("/images/global/bg-primary-sprite.png");
+	background-position:-350px -112px;
+	margin:0px;
+}
+
+#tieredNav #primaryMenu ul ul {display:none;}
+#tieredNav ul.secondaryMenu {width:970px;background:url("/images/global/bg-secondary.png") no-repeat -1px -11px;overflow:hidden;display:none;height:44px; z-index:-1; position:relative}
+#tieredNav ul.selected {display:block;margin:1px 0px 0px 1px;}
+/*
+#tieredNav ul.secondaryMenu li {float:left;padding:8px 0px 0px 25px;}/* changed margin to padding */ /*
+#tieredNav ul.secondaryMenu li.selected a {color:#DF7300;}
+#tieredNav ul.secondaryMenu li a {color:#333;font-size:14px;display:block;height:24px;float:left;} /* font-size:13px to 14px per B2C-102927 */ /*
+#tieredNav ul.secondaryMenu li a.selected {background:url("//0.ecom.attccc.com/images/global/bg-secondary-highlight.gif") no-repeat center bottom;color:#DF7300}
+#tieredNav ul.secondaryMenu li a:hover {color:#DF7300;}
+*/
+#tieredNav ul.secondaryMenu li {margin:0 6px 0 0; float:left;}
+#tieredNav #secondaryMenu_MyATT li {margin: 0 3px 0 0px !important;}
+#tieredNav ul.secondaryMenu li:first-child {padding-left:11px;}
+#tieredNav ul.secondaryMenu li.selected a {color:#DF7300;}
+#tieredNav ul.secondaryMenu li a {color:#333; font-size:14px; padding:0 9px 0 9px; display:block; line-height:44px; height:44px; float:left;} /* font-size:13px to 14px per B2C-102927 */
+#tieredNav ul.secondaryMenu li a.selected {background:url("/images/global/bg-secondary-highlight.gif") no-repeat center bottom;color:#DF7300}
+#tieredNav ul.secondaryMenu li a:hover {color:#DF7300;}
+
+#trayContent {background:url("/images/global/bg-tray.png") repeat-x top;overflow:hidden;}
+#trayContent .trayContentItem {overflow:auto;display:none;margin-left:4px;min-height:172px;}
+
+#trayContent .columnContent img {display:block;margin:auto;width:189px;height:200px;}
+#trayContent .columnContent h3 {position:relative;height:30px;font-size:16px;color:#333}
+#trayContent .columnContent h3 a {position:absolute;bottom:16px;font-size:16px; color:#333; padding-bottom:2px;}
+#trayContent .columnContent ul {list-style-type:none;}
+#trayContent .columnContent li {} /*{line-height:15px;padding-bottom:7px;} removed per B2C-102927*/
+#trayContent .columnContent a {color:#3381B7;font-size:12px;position:static;width:100%;display:block}
+#trayContent .columnContent a:hover {text-decoration:underline;}
+
+#trayContent .trayContentItem .firstColumn .columnContent {padding:19px 13px 12px;}
+#trayContent .trayContentItem .firstColumn {float:left;width:240px;}
+#trayContent .trayContentItem .secondColumn {float:left;width:240px; background:url("/images/global/bg-tray-column.jpg") no-repeat bottom left;}
+#trayContent .trayContentItem .secondColumn.myAttCol {width:230px; margin-right:1px;float:left;}
+#trayContent .trayContentItem .secondColumn.myAttCol .columnContent {}
+#trayContent .trayContentItem .columnContent {padding:19px;}
+
+#trayContent .firstColumn .columnContent {padding:19px;} 
+#trayContent .firstColumn {float:left;width:249px;}
+#trayContent .secondColumn {float:left;width:240px;}
+#trayContent .columnContent {padding:35px 20px 34px}
+#trayContent .trayNoBullet a{font-size:13px; display:block; line-height:15px; padding-bottom:8px;} /* added per B2C-102927 */
+#trayContent .newwindow span {padding:0px 13px 0 1px; margin:0 0 0 3px; background:url("/images/global/bg-primary-sprite.png") no-repeat scroll -424px -233px transparent;width:12px;height:9px !important;}
+
+#segClearFloat {clear:both;}
+
+#globalNavShadows {height:40px}
+
+#globalNavShadows .globalNavHasShadow {
+	border-radius: 3px;
+	box-shadow: rgba(0,0,0,.4) 0px 0px 8px,  0 0 3px rgba(0, 0, 0, 0.4);
+	-moz-border-radius: 3px;
+	-moz-box-shadow: rgba(0,0,0,.4) 0px 0px 8px,  0 0 3px rgba(0, 0, 0, 0.4);
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: rgba(0,0,0,.4) 0px 0px 8px,  0 0 3px rgba(0, 0, 0, 0.4);
+	box-shadow: rgba(0,0,0,.4) 0px 0px 8px,  0 0 3px rgba(0, 0, 0, 0.4);
+	filter: 
+	progid:DXImageTransform.Microsoft.Alpha(opacity=30)
+	progid:DXImageTransform.Microsoft.Blur(pixelRadius=6, enabled='true');
+}
+
+#globalNavShadows .segHasShadow {
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.8);
+	filter: 
+	progid:DXImageTransform.Microsoft.Alpha(opacity=30)
+	progid:DXImageTransform.Microsoft.Blur(pixelRadius=6, enabled='true');
+}
+
+.gn_prefooter {
+	border-bottom: 1px solid #E3E3E3;
+	color: #CCCCCC;
+	margin-bottom: 10px;
+	margin-left: 0;
+	margin-top: 0;
+	padding-bottom: 10px;
+	padding-left: 9px;
+	padding-top: 0;
+	text-align: left;
+	width: auto;
+}
+.gn_prefooter a{ padding:5px;}
+.gn_prefooter .secondRow, .gn_prefooter .thirdRow{ padding-top:6px;}
+.consumer #wrapper .gn_prefooter a {color:#999}
+/*styles for autosuggest*/
+/*
+	Autosuggest width increased to 180px to fix overlap of border and
+	center the dropdown box to the search box
+*/
+#tieredNav #primaryMenu #primary_Search .autoSuggest ul li {color:#656565}
+	
+	#tieredNav #primaryMenu #primary_Search .autoSuggest {
+		width: 180px;
+		z-index: 9999;
+		background:white;
+		padding: 5px 0 2px; 
+		margin:0; 
+		background:#fff; 
+		border:1px solid #ccc;
+		position: absolute;
+		top:34px;
+		left:17px;
+	}
+
+	#tieredNav #primaryMenu #primary_Search .autoSuggest ul {
+		width: 162px !important; /* was 165px - 3/14/2013 reduced by GlobalNav Pod because search box width was reduced and results overlaping bordr */
+		background:transparent !important;
+		display:block;
+		float: none;
+		height: auto;
+		position: none;
+		z-index: 100;
+		list-style:none;
+		padding:0 0 0 1px; 
+		margin:0 0 0 1px; 
+	}
+
+	#tieredNav #primaryMenu #primary_Search .autoSuggest ul li {
+		width: 155px;
+		background:white;
+		display:block;
+		float: none;
+		height: auto;
+		position: none;
+		z-index: 100;
+		margin-left:3px;
+
+		padding: 1px 2px 2px 2px;
+		cursor: pointer; 
+		font-size: 11px;
+		font-family: Verdana, Geneva, sans-serif; 
+		white-space:nowrap;
+		line-height:1.5em;
+	}
+
+	#tieredNav #primaryMenu #primary_Search .autoSuggest ul li:hover { 
+		background-color: #ebebeb;
+	}
+	#tieredNav #primaryMenu #primary_Search #autoSuggestBox li a {
+		text-decoration:none;
+		color:#656565
+	}
+	#tieredNav #primaryMenu #primary_Search #autoSuggestBox li a:link {
+		text-decoration:none;
+		color:#656565
+	}
+	#tieredNav #primaryMenu #primary_Search #autoSuggestBox li a:hover {
+		text-decoration:none;
+		color:#656565
+	}
+	#tieredNav #primaryMenu #primary_Search #autoSuggestBox a{
+		display:block;
+	}
+	#tieredNav #primaryMenu #primary_Search #autoSuggestBox .ui-state-hover{
+		background:#ebebeb;
+	}
+	
+iframe.grelated-iframe {
+	left:-99999px !important;
+	display:none !important;
+}
+
+#underNav{
+	text-align:right;
+    font-size: 12px;
+    height: 32px;
+    line-height: 30px;
+    margin: 0 auto;
+    width: 970px;
+}
+/* Breadcrumb style added because of US9544 */
+#underNav.breadcrumbGutter {
+	line-height: inherit !important;
+	z-index: inherit !important;
+	text-align: left !important;
+	/* height: inherit !important; 4/3/2013 ECOM1304H-476 - GlobalNav Pod removed height attr because it was affecting the location of the main page marquee */
+}/****Adjusted style of breadcrumb per Rally Story US9544 ****/
+.breadcrumb.breadcrumb-undernav.billing-payments .breadcrumb {
+	position:relative; 
+	margin:17px 0 16px 14px;
+	padding:0px;
+	top: 0;
+	font-size: 11px;
+	color: #666666;
+}
+.breadcrumb.breadcrumb-undernav.billing-payments .breadcrumb a {
+	font-size: 11px;
+} /****Adjusted style of breadcrumb per Rally Story US9544 ****/
+
+/*
+	Due to the new breadcrumbs being introduced into
+	the gutter, needed to adjust the bg-top-shadow image to
+	the correct position
+*/
+#main-container .bg-top-shadow {
+	/*	This declaration is causing problems accross the main pages
+		so needed to remove
+	*/
+	/* top: 11px !important; */
+}
+#main-container .bg-top-shadow.bg-top-shadow-reset {
+	top: -8px !important;
+}
+#wrapper.main-container-wrapper #main-container .bg-top-shadow {
+	top: -8px !important;
+}
+/*
+	Due to the new breadcrumbs being introduced into
+	the gutter, needed to adjust the bg-top-shadow image to
+	the correct position - this is for a fix on the
+	Shop Landing Home Page. Reset the top value to
+	original
+*/
+#main-container .bg-top-shadow.shoplanding {
+	top: 22px !important;
+}
+/*
+	Due to the new breadcrumbs being introduced into
+	the undernav_content.jsp gutter, needed to hide
+	duplicate breadcrumbs inside pages
+	Shop-Wireless-Plans-Individual Plans
+*/
+#main-container .plans-list-bread-crumb {
+	visibility: hidden;
+}
+/*
+	US9344 Upgrade Browser Message CSS
+	Used on the globalNav.jsp page
+*/
+.ge5p_z0-centerText {
+    text-align: center;
+}
+
+/* Upgrade Browser Message Container */
+.ge5p_z0-message-container {
+    display: none;
+    zoom: 1;
+}
+.ge5p_z0-browser-alert-message {
+    background-color: #FEFFD5;
+}
+.ge5p_z0-browser-alert-inner {
+    padding: 20px 0 20px 0;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+    color: #333333;
+}
+ .ge5p_z0-browser-alert-inner h2 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: left;
+    }
+.ge5p_z0-browser-alert-text {
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: left;
+}
+.ge5p_z0-browser-alert-browser-list li {
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.ge5p_z0-browser-alert-browser-list li a {
+    outline: 0;
+}
+.ge5p_z0-browser-alert-browser-list li:first-child {
+    margin-left: 0px;
+}
+.ge5p_z0-close-box-container {
+    position: absolute;
+    top: 10px;
+    left: 850px;
+    width: 80px;
+    line-height: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+    .ge5p_z0-close-box-container div {
+        float: left;
+        line-height: 25px;    
+}
+.ge5p_z0-close-box-text {
+    line-height: 32px;
+    font-size: 12px;
+    margin-right: 5px;
+    font-weight: normal;
+    color: #006699;
+}
+.ge5p_z0-close-circle{
+    background-color: #999999;
+    border: 10px solid #999999;
+    border-radius: 11px;
+    -moz-border-radius:11px;  /*for moz based browser*/
+    -webkit-border-radius:11px;  /*for webkit based browser*/
+    /*behavior: url("ie-css3.htc"); for IE 8 where /ie-css3.htc is the location of the file*/
+    position: relative;
+    width: 0px;
+    cursor: pointer;
+    margin: 2px 0 0 0;
+}
+    .ge5p_z0-close-circle p {
+         color: #FFFFFF;
+	    font-family: Arial;
+	    font-size: 19px;
+	    font-weight: bold;
+	    left: -5px;
+	    margin: 0;
+	    padding: 0;
+	    position: absolute;
+	    top: -13px;
+    }
