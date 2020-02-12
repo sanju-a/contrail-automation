@@ -4,7 +4,7 @@ from setuptools import find_packages
 setup(
     name='Poc',
     version='0.1.0',
-    author='Sanju Abraham',
+    author='ABC',
     author_email='abcd@abc.com',
     packages=find_packages(),
     url='http://pypi.python.org/pypi/svcActivation/',
