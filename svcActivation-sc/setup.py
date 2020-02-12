@@ -2,10 +2,10 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(
-    name='attPoc',
+    name='poc',
     version='0.1.0',
-    author='Sanju Abraham',
-    author_email='sanjua@juniper.net',
+    author='ABC',
+    author_email='abc@abc.net',
     packages=find_packages(),
     url='http://pypi.python.org/pypi/svcActivation/',
     license='LICENSE',
