@@ -12,6 +12,6 @@ setup(
     description='NFV demo',
     long_description=open('README').read(),
     install_requires=[
-        "Django == 1.11.28",
+        "Django == 1.11.29",
     ],
 )
